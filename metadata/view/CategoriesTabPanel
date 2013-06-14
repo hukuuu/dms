@@ -1,0 +1,84 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "docked": null,
+        "designer|userClassName": "CategoriesTabPanel",
+        "designer|initialView": true
+    },
+    "designerId": "928243ea-110f-4c21-8eca-3be51414edc3",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Хора",
+                "iconCls": "team"
+            },
+            "designerId": "4a418388-7a30-49c2-9471-149d600e0262",
+            "masterInstanceId": "2b00e602-1557-4d37-adcd-09f837809c01"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Организации",
+                "iconCls": "favorites"
+            },
+            "designerId": "d5d0dd16-1974-4e9a-a40c-c2d099dfb1f6",
+            "masterInstanceId": "4994e520-9919-4964-a9df-9798f4c5aab9"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Други",
+                "iconCls": "info"
+            },
+            "designerId": "7e837a8c-1ca7-4996-afbd-ce3d06509b16",
+            "masterInstanceId": "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "История",
+                "iconCls": "bookmarks"
+            },
+            "designerId": "6e79c272-35e4-4341-a60e-c624338e7289",
+            "masterInstanceId": "573555d2-0901-4cbb-9731-b569b67a9043"
+        },
+        {
+            "type": "Ext.tab.Bar",
+            "reference": {
+                "name": "tabBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom"
+            },
+            "designerId": "20c25ff4-18dd-48e1-99f6-7bb8a3789106"
+        }
+    ]
+}

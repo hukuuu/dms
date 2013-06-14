@@ -1,0 +1,115 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PeopleController"
+    },
+    "designerId": "f8118242-9382-417a-98b4-b0de8d4c238b",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "peopleList",
+                "selector": "peopleContainer list"
+            },
+            "designerId": "b6e1f25d-f757-4683-827d-3b5e76b7accd"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onContainerItemTap",
+                "designer|params": [
+                    "thisObj",
+                    "index",
+                    "target",
+                    "record",
+                    "e",
+                    "eOpts"
+                ],
+                "implHandler": [
+                    "var tabPanel = this.getTabPanel();\r",
+                    "\r",
+                    "tabPanel.setActiveItem(1);\r",
+                    "console.log(this.getDetailsContainer().element);\r",
+                    "window.el = this.getDetailsContainer().element;\r",
+                    "\r",
+                    "this.getDetailsContainer().element.on(\r",
+                    "    { \r",
+                    "        swipe: function (e) {\r",
+                    "    \t\tconsole.log(e);\r",
+                    "            if(e.direction === \"right\") {\r",
+                    "                tabPanel.setActiveItem(0);\r",
+                    "            }\r",
+                    "    \t\t\r",
+                    "        } \r",
+                    "    });"
+                ],
+                "name": "itemtap",
+                "designer|targetType": null,
+                "designer|controlQuery": "peopleList"
+            },
+            "designerId": "b4b8bdf9-a030-4441-89f2-5c74e6b239f8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "tabPanel",
+                "selector": "peopleContainer tabpanel"
+            },
+            "designerId": "815153f9-36af-4aff-bea9-46eacc75843f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "detailsContainer",
+                "selector": "peopleContainer container[title=details]"
+            },
+            "designerId": "d00ac180-8b49-4bad-abe0-fe4757a6c740"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "target"
+                ],
+                "fn": "onContainerInitialize",
+                "implHandler": [
+                    "console.log('details is initialized');"
+                ],
+                "name": "initialize",
+                "designer|targetType": null,
+                "designer|controlQuery": "detailsContainer"
+            },
+            "designerId": "7916eca3-4fc9-4766-ae66-29bc4c7c8412"
+        }
+    ]
+}

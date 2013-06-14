@@ -1,0 +1,120 @@
+{
+    "name": "dms",
+    "settings": {
+        "urlPrefix": "http://localhost:8888/dms/",
+        "exportPath": "",
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
+    "topInstanceFileMap": {
+        "928243ea-110f-4c21-8eca-3be51414edc3": {
+            "paths": [
+                "metadata/view/CategoriesTabPanel",
+                "app/view/override/CategoriesTabPanel.js",
+                "app/view/CategoriesTabPanel.js"
+            ],
+            "className": "CategoriesTabPanel"
+        },
+        "14e909f4-3304-41dd-a16b-c4755408b32e": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "6a099de1-b7c3-4503-9924-792e519bf2fb": {
+            "paths": [
+                "metadata/resource/js"
+            ],
+            "className": "js"
+        },
+        "2b00e602-1557-4d37-adcd-09f837809c01": {
+            "paths": [
+                "metadata/view/PeopleContainer",
+                "app/view/override/PeopleContainer.js",
+                "app/view/PeopleContainer.js"
+            ],
+            "className": "PeopleContainer"
+        },
+        "4994e520-9919-4964-a9df-9798f4c5aab9": {
+            "paths": [
+                "metadata/view/OrganizationsContainer",
+                "app/view/override/OrganizationsContainer.js",
+                "app/view/OrganizationsContainer.js"
+            ],
+            "className": "OrganizationsContainer"
+        },
+        "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c": {
+            "paths": [
+                "metadata/view/OthersContainer",
+                "app/view/override/OthersContainer.js",
+                "app/view/OthersContainer.js"
+            ],
+            "className": "OthersContainer"
+        },
+        "573555d2-0901-4cbb-9731-b569b67a9043": {
+            "paths": [
+                "metadata/view/HistoryContainer",
+                "app/view/override/HistoryContainer.js",
+                "app/view/HistoryContainer.js"
+            ],
+            "className": "HistoryContainer"
+        },
+        "198e3fdb-0561-4518-a428-1cf0bf22cf5b": {
+            "paths": [
+                "metadata/store/PeopleStore",
+                "app/store/override/PeopleStore.js",
+                "app/store/PeopleStore.js"
+            ],
+            "className": "PeopleStore"
+        },
+        "0f3af2d8-5c29-4724-b0f2-02cda179b179": {
+            "paths": [
+                "metadata/model/PersonModel",
+                "app/model/override/PersonModel.js",
+                "app/model/PersonModel.js"
+            ],
+            "className": "PersonModel"
+        },
+        "f8118242-9382-417a-98b4-b0de8d4c238b": {
+            "paths": [
+                "metadata/controller/PeopleController",
+                "app/controller/override/PeopleController.js",
+                "app/controller/PeopleController.js"
+            ],
+            "className": "PeopleController"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "928243ea-110f-4c21-8eca-3be51414edc3",
+            "2b00e602-1557-4d37-adcd-09f837809c01",
+            "4994e520-9919-4964-a9df-9798f4c5aab9",
+            "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c",
+            "573555d2-0901-4cbb-9731-b569b67a9043"
+        ],
+        "store": [
+            "198e3fdb-0561-4518-a428-1cf0bf22cf5b"
+        ],
+        "controller": [
+            "f8118242-9382-417a-98b4-b0de8d4c238b"
+        ],
+        "model": [
+            "0f3af2d8-5c29-4724-b0f2-02cda179b179"
+        ],
+        "resource": [
+            "14e909f4-3304-41dd-a16b-c4755408b32e",
+            "6a099de1-b7c3-4503-9924-792e519bf2fb"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

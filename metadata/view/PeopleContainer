@@ -1,0 +1,93 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "html": null,
+        "designer|userClassName": "PeopleContainer",
+        "designer|userAlias": "peopleContainer",
+        "layout": "fit"
+    },
+    "designerId": "2b00e602-1557-4d37-adcd-09f837809c01",
+    "cn": [
+        {
+            "type": "Ext.tab.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "designerId": "1a59b387-7539-4c0d-963d-bb6d66ee0056",
+            "cn": [
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "list",
+                        "layout": "fit"
+                    },
+                    "designerId": "3bb2c181-0484-451b-a4af-ee637beb1cf8",
+                    "cn": [
+                        {
+                            "type": "Ext.dataview.List",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "centered": null,
+                                "store": "PeopleStore",
+                                "onItemDisclosure": false
+                            },
+                            "designerId": "0e3b2eb9-f2d8-46f6-b636-2e27351bb3fa",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "itemTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "implHandler": [
+                                            "<div>{title}</div>"
+                                        ],
+                                        "designer|displayName": "itemTpl"
+                                    },
+                                    "designerId": "8c9591cf-1a01-4b4e-8348-72e3adf88f59",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "item",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "title": "details"
+                    },
+                    "designerId": "f7e86a1c-276e-4402-be9d-f490a3e54352"
+                }
+            ]
+        }
+    ]
+}

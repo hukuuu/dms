@@ -1,0 +1,28 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "PersonModel"
+        ],
+        "stores": [
+            "PeopleStore"
+        ],
+        "views": [
+            "CategoriesTabPanel",
+            "PeopleContainer",
+            "OrganizationsContainer",
+            "OthersContainer",
+            "HistoryContainer"
+        ],
+        "controllers": [
+            "PeopleController"
+        ],
+        "name": "MyApp"
+    },
+    "designerId": "application"
+}
