@@ -20,15 +20,16 @@ Ext.define('MyApp.controller.PeopleController', {
         refs: {
             peopleList: 'peopleContainer list',
             tabPanel: 'peopleContainer tabpanel',
-            detailsContainer: 'peopleContainer container[title=details]'
+            detailsContainer: 'peopleContainer container[title=details]',
+            sendSmsButton: 'detailsContainer button[action=sendSMS]'
         },
 
         control: {
             "peopleList": {
                 itemtap: 'onContainerItemTap'
             },
-            "detailsContainer": {
-                initialize: 'onContainerInitialize'
+            "peopleContainer container[title=details] button[action=sendSMS]": {
+                tap: 'onSmsButtonTap'
             }
         }
     },
@@ -40,21 +41,21 @@ Ext.define('MyApp.controller.PeopleController', {
         console.log(this.getDetailsContainer().element);
         window.el = this.getDetailsContainer().element;
 
-        this.getDetailsContainer().element.on(
-        { 
-            swipe: function (e) {
-                console.log(e);
-                if(e.direction === "right") {
-                    alert('swiped');
-                    tabPanel.setActiveItem(0);
-                }
-
-            } 
-        });
     },
 
-    onContainerInitialize: function(target) {
-        console.log('details is initialized');
+    onSmsButtonTap: function(button, e, eOpts) {
+
+    },
+
+    launch: function() {
+        var me = this;
+
+        me.getDetailsContainer().element.on(
+        { 
+            swipe: function (e) {
+                me.getTabPanel().setActiveItem(0);  
+            } 
+        });
     }
 
 });

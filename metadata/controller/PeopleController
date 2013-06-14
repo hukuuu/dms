@@ -46,18 +46,7 @@
                     "tabPanel.setActiveItem(1);\r",
                     "console.log(this.getDetailsContainer().element);\r",
                     "window.el = this.getDetailsContainer().element;\r",
-                    "\r",
-                    "this.getDetailsContainer().element.on(\r",
-                    "{ \r",
-                    "    swipe: function (e) {\r",
-                    "        console.log(e);\r",
-                    "        if(e.direction === \"right\") {\r",
-                    "            alert('swiped');\r",
-                    "            tabPanel.setActiveItem(0);\r",
-                    "        }\r",
-                    "\r",
-                    "    } \r",
-                    "});"
+                    ""
                 ],
                 "name": "itemtap",
                 "designer|targetType": null,
@@ -92,6 +81,41 @@
             "designerId": "d00ac180-8b49-4bad-abe0-fe4757a6c740"
         },
         {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me.getDetailsContainer().element.on(\r",
+                    "{ \r",
+                    "    swipe: function (e) {\r",
+                    "        me.getTabPanel().setActiveItem(0);  \r",
+                    "    } \r",
+                    "});"
+                ]
+            },
+            "designerId": "f520bd31-fffb-496b-bb90-2859b03e8e6e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "sendSmsButton",
+                "selector": "detailsContainer button[action=sendSMS]"
+            },
+            "designerId": "8a422d92-80f3-4d8d-92e2-026d3b43837c"
+        },
+        {
             "type": "controlleraction",
             "reference": {
                 "name": "listeners",
@@ -99,18 +123,15 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "onContainerInitialize",
-                "designer|params": [
-                    "target"
-                ],
+                "fn": "onSmsButtonTap",
                 "implHandler": [
-                    "console.log('details is initialized');"
+                    ""
                 ],
-                "name": "initialize",
-                "designer|targetType": null,
-                "designer|controlQuery": "detailsContainer"
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "peopleContainer container[title=details] button[action=sendSMS]"
             },
-            "designerId": "7916eca3-4fc9-4766-ae66-29bc4c7c8412"
+            "designerId": "b43e6c37-a346-4c8f-be36-1f0408aeabb7"
         }
     ]
 }

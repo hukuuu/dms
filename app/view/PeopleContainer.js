@@ -17,6 +17,10 @@ Ext.define('MyApp.view.PeopleContainer', {
     extend: 'Ext.Container',
     alias: 'widget.peopleContainer',
 
+    requires: [
+        'MyApp.view.PersonDetailsContainer'
+    ],
+
     config: {
         layout: {
             type: 'fit'
@@ -43,10 +47,14 @@ Ext.define('MyApp.view.PeopleContainer', {
                         ]
                     },
                     {
-                        xtype: 'container',
+                        xtype: 'personDetailsContainer',
                         title: 'details'
                     }
-                ]
+                ],
+                tabBar: {
+                    docked: 'top',
+                    hidden: true
+                }
             }
         ]
     }

@@ -76,7 +76,7 @@
                     ]
                 },
                 {
-                    "type": "Ext.Container",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -85,7 +85,21 @@
                     "userConfig": {
                         "title": "details"
                     },
-                    "designerId": "f7e86a1c-276e-4402-be9d-f490a3e54352"
+                    "designerId": "a5da4b32-0e99-4a84-8429-2c7874190e94",
+                    "masterInstanceId": "c6b4d06a-404f-42d7-84db-435b53e858b3"
+                },
+                {
+                    "type": "Ext.tab.Bar",
+                    "reference": {
+                        "name": "tabBar",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "docked": "top",
+                        "hidden": true
+                    },
+                    "designerId": "3e902fd2-fb09-4aa2-b53f-e443b777f8e6"
                 }
             ]
         }
