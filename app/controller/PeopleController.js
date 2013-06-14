@@ -45,6 +45,7 @@ Ext.define('MyApp.controller.PeopleController', {
             swipe: function (e) {
                 console.log(e);
                 if(e.direction === "right") {
+                    alert('swiped');
                     tabPanel.setActiveItem(0);
                 }
 
