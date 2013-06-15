@@ -31,10 +31,10 @@ Ext.application({
         'OrganizationsContainer',
         'OthersContainer',
         'HistoryContainer',
-        'PersonDetailsContainer'
+        'DetailsContainer'
     ],
     controllers: [
-        'PeopleController'
+        'MainController'
     ],
     name: 'MyApp',
 

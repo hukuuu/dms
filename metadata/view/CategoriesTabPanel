@@ -8,6 +8,7 @@
     "userConfig": {
         "docked": null,
         "designer|userClassName": "CategoriesTabPanel",
+        "designer|userAlias": "categoriesTabPanel",
         "designer|initialView": true
     },
     "designerId": "928243ea-110f-4c21-8eca-3be51414edc3",
@@ -34,6 +35,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "layout": "fit",
                 "title": "Организации",
                 "iconCls": "favorites"
             },
@@ -48,11 +50,27 @@
             },
             "codeClass": null,
             "userConfig": {
+                "layout": "fit",
                 "title": "Други",
                 "iconCls": "info"
             },
             "designerId": "7e837a8c-1ca7-4996-afbd-ce3d06509b16",
             "masterInstanceId": "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "title": "Детайли",
+                "iconCls": "info"
+            },
+            "designerId": "13a9288c-904c-4551-a218-fe0d40169969",
+            "masterInstanceId": "2d01c997-4e29-4ca5-9fd9-449b755a9a78"
         },
         {
             "type": "linkedinstance",

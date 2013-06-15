@@ -17,44 +17,17 @@ Ext.define('MyApp.view.PeopleContainer', {
     extend: 'Ext.Container',
     alias: 'widget.peopleContainer',
 
-    requires: [
-        'MyApp.view.PersonDetailsContainer'
-    ],
-
     config: {
         layout: {
             type: 'fit'
         },
         items: [
             {
-                xtype: 'tabpanel',
-                items: [
-                    {
-                        xtype: 'container',
-                        title: 'list',
-                        layout: {
-                            type: 'fit'
-                        },
-                        items: [
-                            {
-                                xtype: 'list',
-                                itemTpl: [
-                                    '<div>{title}</div>'
-                                ],
-                                store: 'PeopleStore',
-                                onItemDisclosure: false
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'personDetailsContainer',
-                        title: 'details'
-                    }
+                xtype: 'list',
+                itemTpl: [
+                    '<div>{title}</div>'
                 ],
-                tabBar: {
-                    docked: 'top',
-                    hidden: true
-                }
+                store: 'PeopleStore'
             }
         ]
     }

@@ -15,11 +15,13 @@
 
 Ext.define('MyApp.view.CategoriesTabPanel', {
     extend: 'Ext.tab.Panel',
+    alias: 'widget.categoriesTabPanel',
 
     requires: [
         'MyApp.view.PeopleContainer',
         'MyApp.view.OrganizationsContainer',
         'MyApp.view.OthersContainer',
+        'MyApp.view.DetailsContainer',
         'MyApp.view.HistoryContainer'
     ],
 
@@ -32,12 +34,24 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
             },
             {
                 xtype: 'organizationsContainer',
+                layout: {
+                    type: 'fit'
+                },
                 title: 'Организации',
                 iconCls: 'favorites'
             },
             {
                 xtype: 'othersContainer',
+                layout: {
+                    type: 'fit'
+                },
                 title: 'Други',
+                iconCls: 'info'
+            },
+            {
+                xtype: 'detailsContainer',
+                hidden: true,
+                title: 'Детайли',
                 iconCls: 'info'
             },
             {

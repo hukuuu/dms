@@ -1,6 +1,6 @@
 {
   "applicationName": "dms",
-  "applicationId": "dmsApplication",
+  "applicationId": "dms.application",
   "versionString": "1.0",
   "versionCode": "1",
   "icon": {
@@ -14,7 +14,7 @@
   "configuration": "Debug",
   "platform": "Android",
   "deviceType": "Universal",
-  "sdkPath": "C:\\adt-bundle-windows-x86_64-20130522\\sdk",
+  "sdkPath": "D:\\adt-bundle-windows-x86_64-20130522\\sdk",
   "androidAPILevel": "16",
   "permissions": [
     "INTERNET",

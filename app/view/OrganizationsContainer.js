@@ -18,6 +18,15 @@ Ext.define('MyApp.view.OrganizationsContainer', {
     alias: 'widget.organizationsContainer',
 
     config: {
+        items: [
+            {
+                xtype: 'list',
+                itemTpl: [
+                    '<div>{title}</div>'
+                ],
+                store: 'PeopleStore'
+            }
+        ]
     }
 
 });

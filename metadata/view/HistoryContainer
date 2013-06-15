@@ -6,8 +6,9 @@
     },
     "codeClass": null,
     "userConfig": {
+        "hidden": true,
         "designer|userClassName": "HistoryContainer",
         "designer|userAlias": "historyContainer"
     },
-    "designerId": "573555d2-0901-4cbb-9731-b569b67a9043"
+    "designerId": "8a90eedc-4b96-409b-86ac-3058c8a9fbde"
 }

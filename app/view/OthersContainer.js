@@ -18,6 +18,15 @@ Ext.define('MyApp.view.OthersContainer', {
     alias: 'widget.othersContainer',
 
     config: {
+        items: [
+            {
+                xtype: 'list',
+                itemTpl: [
+                    '<div>{title}</div>'
+                ],
+                store: 'PeopleStore'
+            }
+        ]
     }
 
 });

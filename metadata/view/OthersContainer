@@ -9,5 +9,45 @@
         "designer|userClassName": "OthersContainer",
         "designer|userAlias": "othersContainer"
     },
-    "designerId": "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c"
+    "designerId": "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c",
+    "cn": [
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "centered": null,
+                "store": "PeopleStore",
+                "onItemDisclosure": null
+            },
+            "designerId": "ea27c961-c171-485a-9911-6c7a44573116",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "implHandler": [
+                            "<div>{title}</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "4bb9c9f0-fcbd-41d5-9eb0-51bc654abcf1",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "item",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

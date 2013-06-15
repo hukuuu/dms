@@ -13,7 +13,7 @@
      * 
      * This is the name namespace for your application. On IOS, this should match the name of your application in the Apple Provisioning Portal.
      */
-    "applicationId": "dmsApplication",
+    "applicationId": "dms.application",
 
     /**
      * @cfg {String} versionString
@@ -96,7 +96,7 @@
      * 
      * This is the path to the Android SDK, if you are developing an Android application.
      */
-    "sdkPath": "C:\\adt-bundle-windows-x86_64-20130522\\sdk",
+    "sdkPath": "D:\\adt-bundle-windows-x86_64-20130522\\sdk",
 
     /**
      * @cfg {String} androidAPILevel

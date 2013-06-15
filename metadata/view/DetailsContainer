@@ -1,0 +1,77 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "setData": null,
+        "refresh": null,
+        "template": [
+            "function(record) {\r",
+            "    return new Ext.Template(       \r",
+            "        '<div name=\"{id}\">',\r",
+            "        '<img src={imageUrl} width=\"100\" height=\"100\" alt=\"no image\"></img>',\r",
+            "        '<h1>{title}</h1>',\r",
+            "        '<p>{description}</p>',\r",
+            "        '<time>{date}</time>',\r",
+            "        '</div>',\r",
+            "        // a configuration object:\r",
+            "        {\r",
+            "            compiled: true      // compile immediately\r",
+            "        }\r",
+            "    ).apply(record.getData());   \r",
+            "}"
+        ],
+        "html": null,
+        "designer|userClassName": "DetailsContainer",
+        "designer|userAlias": "detailsContainer"
+    },
+    "configAlternates": {
+        "setData": "object",
+        "refresh": "object",
+        "template": "object"
+    },
+    "designerId": "2d01c997-4e29-4ca5-9fd9-449b755a9a78",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "setData",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "refresh",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "template",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "action": "sendSms",
+                "docked": "bottom",
+                "text": "Send SMS"
+            },
+            "designerId": "d91816b0-ba80-4e67-9d0a-265e482eb3ee",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "action",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

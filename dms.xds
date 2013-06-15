@@ -80,19 +80,11 @@
         },
         "f8118242-9382-417a-98b4-b0de8d4c238b": {
             "paths": [
-                "metadata/controller/PeopleController",
-                "app/controller/override/PeopleController.js",
-                "app/controller/PeopleController.js"
+                "metadata/controller/MainController",
+                "app/controller/override/MainController.js",
+                "app/controller/MainController.js"
             ],
-            "className": "PeopleController"
-        },
-        "c6b4d06a-404f-42d7-84db-435b53e858b3": {
-            "paths": [
-                "metadata/view/PersonDetailsContainer",
-                "app/view/override/PersonDetailsContainer.js",
-                "app/view/PersonDetailsContainer.js"
-            ],
-            "className": "PersonDetailsContainer"
+            "className": "MainController"
         },
         "791ff81e-c68f-43e1-b4ae-1f429d026e42": {
             "paths": [
@@ -101,6 +93,14 @@
                 "packager.json"
             ],
             "className": "packager"
+        },
+        "2d01c997-4e29-4ca5-9fd9-449b755a9a78": {
+            "paths": [
+                "metadata/view/DetailsContainer",
+                "app/view/override/DetailsContainer.js",
+                "app/view/DetailsContainer.js"
+            ],
+            "className": "DetailsContainer"
         }
     },
     "viewOrderMap": {
@@ -110,7 +110,7 @@
             "4994e520-9919-4964-a9df-9798f4c5aab9",
             "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c",
             "573555d2-0901-4cbb-9731-b569b67a9043",
-            "c6b4d06a-404f-42d7-84db-435b53e858b3"
+            "2d01c997-4e29-4ca5-9fd9-449b755a9a78"
         ],
         "store": [
             "198e3fdb-0561-4518-a428-1cf0bf22cf5b"
