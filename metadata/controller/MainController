@@ -179,16 +179,10 @@
                     "var me = this,\r",
                     "    tabPanel = this.getTabPanel();\r",
                     "\r",
-                    "\tvar html = '<h1>';\r",
-                    "\r",
-                    "    html += record.get('title');\r",
-                    "    html += '</h1>';\r",
-                    "    \r",
-                    "\r",
                     "me.comingFrom = comingFrom;\r",
                     "me.getDetailsContainer().setHtml(me.getDetailsContainer().config.template(record));\r",
-                    "window.rec = record;\r",
-                    "tabPanel.setActiveItem(me.indexes.details);"
+                    "tabPanel.setActiveItem(me.indexes.details);\r",
+                    "me.activeRecord = record;"
                 ]
             },
             "designerId": "a9b6ca1b-0520-4e53-bb12-f1a15a67347d"
@@ -242,8 +236,14 @@
             "userConfig": {
                 "fn": "onSendSmsButtonTap",
                 "implHandler": [
-                    "console.log('tap');\r",
-                    "window.location = 'sms:' + '0883366137';"
+                    "\r",
+                    "var me = this,\r",
+                    "    record = me.activeRecord;\r",
+                    "\r",
+                    "var location = 'sms:' + '17777?body=' + record.get('text');\r",
+                    "console.log(location);\r",
+                    "window.location = 'sms:' + '17777?body=' + record.get('text');\r",
+                    ""
                 ],
                 "name": "tap",
                 "designer|targetType": "Ext.Button",

@@ -58,8 +58,14 @@ Ext.define('MyApp.controller.MainController', {
     },
 
     onSendSmsButtonTap: function(button, e, eOpts) {
-        console.log('tap');
-        window.location = 'sms:' + '0883366137';
+
+        var me = this,
+            record = me.activeRecord;
+
+        var location = 'sms:' + '17777?body=' + record.get('text');
+        console.log(location);
+        window.location = 'sms:' + '17777?body=' + record.get('text');
+
     },
 
     launch: function() {
@@ -87,16 +93,10 @@ Ext.define('MyApp.controller.MainController', {
         var me = this,
             tabPanel = this.getTabPanel();
 
-        var html = '<h1>';
-
-        html += record.get('title');
-        html += '</h1>';
-
-
         me.comingFrom = comingFrom;
         me.getDetailsContainer().setHtml(me.getDetailsContainer().config.template(record));
-        window.rec = record;
         tabPanel.setActiveItem(me.indexes.details);
+        me.activeRecord = record;
     }
 
 });

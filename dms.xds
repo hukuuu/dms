@@ -54,14 +54,6 @@
             ],
             "className": "OthersContainer"
         },
-        "573555d2-0901-4cbb-9731-b569b67a9043": {
-            "paths": [
-                "metadata/view/HistoryContainer",
-                "app/view/override/HistoryContainer.js",
-                "app/view/HistoryContainer.js"
-            ],
-            "className": "HistoryContainer"
-        },
         "198e3fdb-0561-4518-a428-1cf0bf22cf5b": {
             "paths": [
                 "metadata/store/PeopleStore",
@@ -101,15 +93,23 @@
                 "app/view/DetailsContainer.js"
             ],
             "className": "DetailsContainer"
+        },
+        "8a90eedc-4b96-409b-86ac-3058c8a9fbde": {
+            "paths": [
+                "metadata/view/HistoryContainer",
+                "app/view/override/HistoryContainer.js",
+                "app/view/HistoryContainer.js"
+            ],
+            "className": "HistoryContainer"
         }
     },
     "viewOrderMap": {
         "view": [
+            "8a90eedc-4b96-409b-86ac-3058c8a9fbde",
             "928243ea-110f-4c21-8eca-3be51414edc3",
             "2b00e602-1557-4d37-adcd-09f837809c01",
             "4994e520-9919-4964-a9df-9798f4c5aab9",
             "1a3e76c4-043d-4e89-8ffe-81a6d60ae97c",
-            "573555d2-0901-4cbb-9731-b569b67a9043",
             "2d01c997-4e29-4ca5-9fd9-449b755a9a78"
         ],
         "store": [

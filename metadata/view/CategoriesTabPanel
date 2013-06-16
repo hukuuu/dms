@@ -73,20 +73,6 @@
             "masterInstanceId": "2d01c997-4e29-4ca5-9fd9-449b755a9a78"
         },
         {
-            "type": "linkedinstance",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "title": "История",
-                "iconCls": "bookmarks"
-            },
-            "designerId": "6e79c272-35e4-4341-a60e-c624338e7289",
-            "masterInstanceId": "573555d2-0901-4cbb-9731-b569b67a9043"
-        },
-        {
             "type": "Ext.tab.Bar",
             "reference": {
                 "name": "tabBar",
