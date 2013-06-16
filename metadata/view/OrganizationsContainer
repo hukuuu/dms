@@ -7,7 +7,10 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "OrganizationsContainer",
-        "designer|userAlias": "organizationsContainer"
+        "designer|userAlias": "organizationsContainer",
+        "requires": [
+            "Ext.dataview.List"
+        ]
     },
     "designerId": "4994e520-9919-4964-a9df-9798f4c5aab9",
     "cn": [

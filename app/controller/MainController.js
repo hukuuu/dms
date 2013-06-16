@@ -79,12 +79,14 @@ Ext.define('MyApp.controller.MainController', {
             details: 3,
             history: 4
 
-        }
+        };
 
         me.getDetailsContainer().element.on(
         { 
             swipe: function (e) {
-                me.getTabPanel().setActiveItem(me.comingFrom);  
+                if(e.direction === 'right') {
+                    me.getTabPanel().setActiveItem(me.comingFrom);  
+                }
             } 
         });
     },
@@ -93,10 +95,25 @@ Ext.define('MyApp.controller.MainController', {
         var me = this,
             tabPanel = this.getTabPanel();
 
+        // refresh details with the selected record
+        me.refreshDetailsContainer(record);
+
+        // save the last location for later return with swipe
         me.comingFrom = comingFrom;
-        me.getDetailsContainer().setHtml(me.getDetailsContainer().config.template(record));
+        // navigate to the details view
         tabPanel.setActiveItem(me.indexes.details);
+        // cache the selected record
         me.activeRecord = record;
+    },
+
+    refreshDetailsContainer: function(record) {
+        var me = this;
+
+        me
+        .getDetailsContainer()
+        .setHtml(
+        me.getDetailsContainer().template.apply(record.getData())
+        );
     }
 
 });

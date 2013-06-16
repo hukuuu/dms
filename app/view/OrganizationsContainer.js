@@ -17,6 +17,10 @@ Ext.define('MyApp.view.OrganizationsContainer', {
     extend: 'Ext.Container',
     alias: 'widget.organizationsContainer',
 
+    requires: [
+        'Ext.dataview.List'
+    ],
+
     config: {
         items: [
             {

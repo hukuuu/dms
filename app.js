@@ -30,8 +30,7 @@ Ext.application({
         'PeopleContainer',
         'OrganizationsContainer',
         'OthersContainer',
-        'HistoryContainer',
-        'DetailsContainer'
+        'HistoryContainer'
     ],
     controllers: [
         'MainController'

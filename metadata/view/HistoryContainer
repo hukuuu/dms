@@ -6,9 +6,42 @@
     },
     "codeClass": null,
     "userConfig": {
-        "hidden": true,
+        "setData": null,
+        "refresh": null,
+        "template": null,
+        "setTemplate": null,
+        "hidden": null,
+        "html": null,
         "designer|userClassName": "HistoryContainer",
         "designer|userAlias": "historyContainer"
     },
-    "designerId": "8a90eedc-4b96-409b-86ac-3058c8a9fbde"
+    "configAlternates": {
+        "setData": "object",
+        "refresh": "object",
+        "template": "object",
+        "setTemplate": "object"
+    },
+    "designerId": "3fb92c9f-0f9c-4841-863f-d688149430d1",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "setData",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "refresh",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "template",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "setTemplate",
+            "type": "string"
+        }
+    ]
 }

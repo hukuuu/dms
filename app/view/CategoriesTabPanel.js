@@ -21,7 +21,8 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
         'MyApp.view.PeopleContainer',
         'MyApp.view.OrganizationsContainer',
         'MyApp.view.OthersContainer',
-        'MyApp.view.DetailsContainer'
+        'MyApp.view.DetailsContainer',
+        'MyApp.view.HistoryContainer'
     ],
 
     config: {
@@ -51,6 +52,11 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
                 xtype: 'detailsContainer',
                 hidden: true,
                 title: 'Детайли',
+                iconCls: 'info'
+            },
+            {
+                xtype: 'historyContainer',
+                title: 'История',
                 iconCls: 'info'
             }
         ],

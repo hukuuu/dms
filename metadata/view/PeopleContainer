@@ -9,6 +9,9 @@
         "html": null,
         "designer|userClassName": "PeopleContainer",
         "designer|userAlias": "peopleContainer",
+        "requires": [
+            "Ext.dataview.List"
+        ],
         "layout": "fit"
     },
     "designerId": "2b00e602-1557-4d37-adcd-09f837809c01",

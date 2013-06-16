@@ -68,13 +68,15 @@
                     "    othersList: 2,\r",
                     "    details: 3,\r",
                     "    history: 4\r",
-                    " \t   \r",
-                    "}\r",
+                    "\r",
+                    "};\r",
                     "\r",
                     "me.getDetailsContainer().element.on(\r",
                     "{ \r",
                     "    swipe: function (e) {\r",
-                    "        me.getTabPanel().setActiveItem(me.comingFrom);  \r",
+                    "        if(e.direction == 'right') {\r",
+                    "            me.getTabPanel().setActiveItem(me.comingFrom);  \r",
+                    "        }\r",
                     "    } \r",
                     "});"
                 ]
@@ -179,9 +181,14 @@
                     "var me = this,\r",
                     "    tabPanel = this.getTabPanel();\r",
                     "\r",
+                    "// refresh details with the selected record\r",
+                    "me.refreshDetailsContainer(record);\r",
+                    "\r",
+                    "// save the last location for later return with swipe\r",
                     "me.comingFrom = comingFrom;\r",
-                    "me.getDetailsContainer().setHtml(me.getDetailsContainer().config.template(record));\r",
+                    "// navigate to the details view\r",
                     "tabPanel.setActiveItem(me.indexes.details);\r",
+                    "// cache the selected record\r",
                     "me.activeRecord = record;"
                 ]
             },
@@ -250,6 +257,30 @@
                 "designer|controlQuery": "sendSmsButton"
             },
             "designerId": "994ae024-4f79-4812-be44-0a56565ede53"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "refreshDetailsContainer",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "me\r",
+                    "\t.getDetailsContainer()\r",
+                    "\t.setHtml(\r",
+                    "        me.getDetailsContainer().template.apply(record.getData())\r",
+                    "    );"
+                ]
+            },
+            "designerId": "dbeda194-b97d-435a-965a-e57f320e122f"
         }
     ]
 }

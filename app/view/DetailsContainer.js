@@ -18,20 +18,6 @@ Ext.define('MyApp.view.DetailsContainer', {
     alias: 'widget.detailsContainer',
 
     config: {
-        template: function(record) {
-            return new Ext.Template(       
-            '<div name="{id}">',
-            '<img src={imageUrl} width="100" height="100" alt="no image"></img>',
-            '<h1>{title}</h1>',
-            '<p>{description}</p>',
-            '<time>{date}</time>',
-            '</div>',
-            // a configuration object:
-            {
-                compiled: true      // compile immediately
-            }
-            ).apply(record.getData());   
-        },
         items: [
             {
                 xtype: 'button',
@@ -40,6 +26,22 @@ Ext.define('MyApp.view.DetailsContainer', {
                 text: 'Send SMS'
             }
         ]
+    },
+
+    initialize: function() {
+        this.callParent();
+        this.template = new Ext.Template(       
+        '<div name="{id}">',
+        '<img src={imageUrl} width="100" height="100" alt="no image"></img>',
+        '<h1>{title}</h1>',
+        '<p>{description}</p>',
+        '<time>{date}</time>',
+        '</div>',
+        // a configuration object:
+        {
+            compiled: true      // compile immediately
+        }
+        );
     }
 
 });

@@ -17,6 +17,10 @@ Ext.define('MyApp.view.PeopleContainer', {
     extend: 'Ext.Container',
     alias: 'widget.peopleContainer',
 
+    requires: [
+        'Ext.dataview.List'
+    ],
+
     config: {
         layout: {
             type: 'fit'

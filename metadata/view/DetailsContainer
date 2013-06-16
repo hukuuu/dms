@@ -8,22 +8,8 @@
     "userConfig": {
         "setData": null,
         "refresh": null,
-        "template": [
-            "function(record) {\r",
-            "    return new Ext.Template(       \r",
-            "        '<div name=\"{id}\">',\r",
-            "        '<img src={imageUrl} width=\"100\" height=\"100\" alt=\"no image\"></img>',\r",
-            "        '<h1>{title}</h1>',\r",
-            "        '<p>{description}</p>',\r",
-            "        '<time>{date}</time>',\r",
-            "        '</div>',\r",
-            "        // a configuration object:\r",
-            "        {\r",
-            "            compiled: true      // compile immediately\r",
-            "        }\r",
-            "    ).apply(record.getData());   \r",
-            "}"
-        ],
+        "template": null,
+        "setTemplate": null,
         "html": null,
         "designer|userClassName": "DetailsContainer",
         "designer|userAlias": "detailsContainer"
@@ -31,7 +17,8 @@
     "configAlternates": {
         "setData": "object",
         "refresh": "object",
-        "template": "object"
+        "template": "object",
+        "setTemplate": "object"
     },
     "designerId": "2d01c997-4e29-4ca5-9fd9-449b755a9a78",
     "customConfigs": [
@@ -48,6 +35,11 @@
         {
             "group": "(Custom Properties)",
             "name": "template",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "setTemplate",
             "type": "string"
         }
     ],
@@ -72,6 +64,33 @@
                     "type": "string"
                 }
             ]
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "initialize",
+                "implHandler": [
+                    "this.callParent();\r",
+                    "this.template = new Ext.Template(       \r",
+                    "    '<div name=\"{id}\">',\r",
+                    "    '<img src={imageUrl} width=\"100\" height=\"100\" alt=\"no image\"></img>',\r",
+                    "    '<h1>{title}</h1>',\r",
+                    "    '<p>{description}</p>',\r",
+                    "    '<time>{date}</time>',\r",
+                    "    '</div>',\r",
+                    "    // a configuration object:\r",
+                    "    {\r",
+                    "        compiled: true      // compile immediately\r",
+                    "    }\r",
+                    ");"
+                ]
+            },
+            "designerId": "160e9e67-5c0e-4034-ac8f-832606b5a5fd"
         }
     ]
 }
