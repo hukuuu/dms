@@ -2,16 +2,59 @@
 
   &.campaign-list {
 
-    .x-list-item {
+    .x-list-item.x-list-item-tpl {
+      border-top-color: theme(border light);
+      border-bottom: 1px solid theme(border dark);
       color: theme(text);
+
+      &.x-item-pressed {
+        border-top-color: theme(border dark);
+        background: theme(border dark);
+      }
+
+      &.x-item-selected {
+        border-top-color: theme(border dark);
+        background: lighten(theme(border dark), 5%);
+      }
+
+      &.x-list-footer-wrap {
+        border-bottom-color: theme(border dark);
+      }
     }
   }
 }
 
+.campaign-list-container {
+  @include clearfix;
+}
+
+.campain-list-img,
+.campain-list-title {
+  @include float(left);
+}
+
 .campain-list-img,
 .campain-list-img img {
-  @include border-radius($campain-list-img-size);
   display: block;
-  width: $campain-list-img-size;
-  height: $campain-list-img-size;
+}
+
+.campain-list-img {
+  $border-size: 2px;
+
+  @include border-radius(($campain-list-img-size + $border-size) * .5);
+  overflow: hidden;
+  width: $campain-list-img-size + $border-size;
+  height: $campain-list-img-size + $border-size;
+  margin: 0 $base-margin 0 0;
+  border: $border-size solid theme(border dark);
+  background: theme(border dark);
+
+  img {
+    @include border-radius($campain-list-img-size * .5);
+    width: $campain-list-img-size;
+  }
+}
+
+.campain-list-title {
+
 }

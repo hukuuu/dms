@@ -9,6 +9,11 @@ $theme:
   navigation (
     link          #ff9b15
   )
+
+  border (
+    dark          #1c1f24
+    light         #3c4147
+  )
 ;
 
 $levels:
@@ -32,11 +37,15 @@ $levels:
 ============================================================================= */
 
 $campain-list-img-size: 48px;
+$base-margin:           10px;
+$base-padding:          $base-margin;
+$base-radius:           $base-margin;
 
 /* =============================================================================
   SENCHA DEFAULTS
 ============================================================================= */
 
-$base-color: theme(text);
-$page-bg-color: theme(page-dark);
-$active-color: theme(navigation link);
+$base-color:            theme(text);
+$page-bg-color:         theme(page-dark);
+$active-color:          theme(navigation link);
+$include-border-radius: false;
