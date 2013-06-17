@@ -98,7 +98,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "/dmsapi/campaign.json?&type=0"
+                "url": "http://dms-bg.herokuapp.com/campaign.json?type=0"
             },
             "designerId": "838c6fb3-07d1-440e-ba94-1724ce65a4c4",
             "cn": [

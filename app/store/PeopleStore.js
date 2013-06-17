@@ -27,7 +27,7 @@ Ext.define('MyApp.store.PeopleStore', {
         storeId: 'PeopleStore',
         proxy: {
             type: 'ajax',
-            url: '/dmsapi/campaign.json?&type=0',
+            url: 'http://dms-bg.herokuapp.com/campaign.json?type=0',
             reader: {
                 type: 'json'
             }
