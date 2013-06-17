@@ -15,7 +15,6 @@
 
 Ext.define('MyApp.view.OrganizationsContainer', {
     extend: 'Ext.Container',
-    cls: 'app-page',
     alias: 'widget.organizationsContainer',
 
     requires: [
@@ -23,6 +22,7 @@ Ext.define('MyApp.view.OrganizationsContainer', {
     ],
 
     config: {
+        cls: 'app-page',
         items: [
             {
                 xtype: 'list',

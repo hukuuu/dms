@@ -7,3 +7,11 @@
     }
   }
 }
+
+.campain-list-img,
+.campain-list-img img {
+  @include border-radius($campain-list-img-size);
+  display: block;
+  width: $campain-list-img-size;
+  height: $campain-list-img-size;
+}

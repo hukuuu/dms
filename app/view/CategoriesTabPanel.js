@@ -16,7 +16,6 @@
 Ext.define('MyApp.view.CategoriesTabPanel', {
     extend: 'Ext.tab.Panel',
     alias: 'widget.categoriesTabPanel',
-    cls: 'app-container',
 
     requires: [
         'MyApp.view.PeopleContainer',
@@ -27,6 +26,7 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
     ],
 
     config: {
+        cls: 'app-container',
         items: [
             {
                 xtype: 'peopleContainer',

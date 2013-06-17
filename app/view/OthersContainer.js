@@ -15,7 +15,6 @@
 
 Ext.define('MyApp.view.OthersContainer', {
     extend: 'Ext.Container',
-    cls: 'app-page',
     alias: 'widget.othersContainer',
 
     requires: [
@@ -23,6 +22,7 @@ Ext.define('MyApp.view.OthersContainer', {
     ],
 
     config: {
+        cls: 'app-page',
         items: [
             {
                 xtype: 'list',

@@ -18,6 +18,7 @@ Ext.define('MyApp.view.DetailsContainer', {
     alias: 'widget.detailsContainer',
 
     config: {
+        cls: 'app-page',
         items: [
             {
                 xtype: 'button',
