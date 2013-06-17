@@ -1,0 +1,68 @@
+// Get a single value from a list of `(key value)` pairs.
+
+@function value-from-list($key, $list) {
+
+  $lookup: $key;
+  $target: $list;
+
+  @if (type-of($lookup) == 'string') {
+    $lookup: -compass-list($lookup);
+  }
+
+  @for $i from 1 through length($lookup) {
+
+    $found: '__false';
+
+    @for $j from 1 through length($target) / 2 {
+
+      @if (nth($target, ($j * 2) - 1) == nth($lookup, $i)) {
+
+        $found: nth($target, ($j * 2));
+      }
+    }
+
+    @if ($found == '__false') {
+      
+      @warn "The list (#{$list}) does not contain a value for key '#{$key}'.";
+      @return false;
+    }
+    $target: $found;
+  }
+  @return $target;
+}
+
+// Get the colour for a given theme component, e.g., 'page'.
+
+@function theme($component, $level: original) {
+
+  $color:      value-from-list($component, $theme);
+  $brightness: value-from-list($level,     $levels);
+
+  @if ($brightness < 0%) {
+
+    @return darken($color, abs($brightness));
+  }
+
+  @if ($brightness > 0%) {
+
+    @return lighten($color, $brightness);
+  }
+
+  @return $color;
+}
+
+// Clear Fix.
+
+@mixin clearfix() {
+
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  zoom: 1;
+}

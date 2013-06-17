@@ -26,7 +26,8 @@ Ext.define('MyApp.store.OrganizationsStore', {
         storeId: 'OrganizationsStore',
         proxy: {
             type: 'ajax',
-            url: 'http://dms-bg.herokuapp.com/campaign.json?type=1',
+            // url: 'http://dms-bg.herokuapp.com/campaign.json?type=1',
+            url: '/dmsapi/campaign.json?type=1',
             reader: {
                 type: 'json'
             }

@@ -15,6 +15,7 @@
 
 Ext.define('MyApp.view.PeopleContainer', {
     extend: 'Ext.Container',
+    cls: 'app-page',
     alias: 'widget.peopleContainer',
 
     requires: [
@@ -28,6 +29,7 @@ Ext.define('MyApp.view.PeopleContainer', {
         items: [
             {
                 xtype: 'list',
+                cls: 'campaign-list',
                 itemTpl: [
                     '<div><img src="{smallImageUrl}" alt="no image"></div>',
                     '<div>{title}</div>'

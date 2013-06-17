@@ -15,6 +15,7 @@
 
 Ext.define('MyApp.view.HistoryContainer', {
     extend: 'Ext.Container',
+    cls: 'app-page',
     alias: 'widget.historyContainer',
 
     config: {

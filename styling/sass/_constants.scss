@@ -1,0 +1,32 @@
+/* =============================================================================
+  SETUP
+============================================================================= */
+
+$theme:
+  page-dark       #30353c
+  text            #d4d4d4
+
+  navigation (
+    link          #ff9b15
+  )
+;
+
+$levels:
+  absdark        -100%
+  darkest        -75%
+  darker         -50%
+  dark           -25%
+  darkish        -10%
+  original         0%
+  lightish        10%
+  light           25%
+  lighter         50%
+  lightest        75%
+  absligh        100%
+;
+
+@import 'functions';
+
+$base-color: theme(text);
+$page-bg-color: theme(page-dark);
+$active-color: theme(navigation link);

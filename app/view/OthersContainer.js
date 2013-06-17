@@ -15,6 +15,7 @@
 
 Ext.define('MyApp.view.OthersContainer', {
     extend: 'Ext.Container',
+    cls: 'app-page',
     alias: 'widget.othersContainer',
 
     requires: [
@@ -25,6 +26,7 @@ Ext.define('MyApp.view.OthersContainer', {
         items: [
             {
                 xtype: 'list',
+                cls: 'campaign-list',
                 itemTpl: [
                     '<div>{title}</div>'
                 ],

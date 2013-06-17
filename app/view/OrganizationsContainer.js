@@ -15,6 +15,7 @@
 
 Ext.define('MyApp.view.OrganizationsContainer', {
     extend: 'Ext.Container',
+    cls: 'app-page',
     alias: 'widget.organizationsContainer',
 
     requires: [
@@ -25,6 +26,7 @@ Ext.define('MyApp.view.OrganizationsContainer', {
         items: [
             {
                 xtype: 'list',
+                cls: 'campaign-list',
                 itemTpl: [
                     '<div>{title}</div>'
                 ],
