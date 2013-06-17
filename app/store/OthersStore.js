@@ -26,8 +26,8 @@ Ext.define('MyApp.store.OthersStore', {
         storeId: 'OthersStore',
         proxy: {
             type: 'ajax',
-            // url: 'http://dms-bg.herokuapp.com/campaign.json?type=2',
-            url: '/dmsapi/campaign.json?type=2',
+            url: 'http://dms-bg.herokuapp.com/campaign.json?type=2',
+            // url: '/dmsapi/campaign.json?type=2',
             reader: {
                 type: 'json'
             }
