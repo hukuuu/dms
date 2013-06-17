@@ -42,6 +42,17 @@ Ext.application({
     launch: function() {
 
         Ext.create('MyApp.view.CategoriesTabPanel', {fullscreen: true});
+        
+     // set up a listener to handle the back button for Android 
+        if (Ext.os.is('Android')) {
+          document.addEventListener("backbutton", Ext.bind(onBackKeyDown, this), false);  // add back button listener
+ 
+          function onBackKeyDown(e) {
+              e.preventDefault();
+ 
+              Ext.Msg.alert('Title', 'The quick brown fox jumped over the lazy dog.', Ext.emptyFn);
+          }
+       }
     }
 
 });
