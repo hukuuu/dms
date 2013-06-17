@@ -90,9 +90,21 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "imageUrl"
+                "name": "smallImageUrl"
             },
             "designerId": "2f273e41-6549-4e58-b64f-037f7a600f30"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "bigImageUrl"
+            },
+            "designerId": "2debd629-8664-4f1d-826a-8e9265d704e0"
         }
     ]
 }

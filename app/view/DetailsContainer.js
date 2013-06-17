@@ -32,7 +32,7 @@ Ext.define('MyApp.view.DetailsContainer', {
         this.callParent();
         this.template = new Ext.Template(       
         '<div name="{id}">',
-        '<img src={imageUrl} width="100" height="100" alt="no image"></img>',
+        '<img src={bigImageUrl} width="100" height="100" alt="no image"></img>',
         '<h1>{title}</h1>',
         '<p>{description}</p>',
         '<time>{date}</time>',

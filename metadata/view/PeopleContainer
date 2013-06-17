@@ -25,6 +25,7 @@
             "codeClass": null,
             "userConfig": {
                 "centered": null,
+                "scrollToTopOnRefresh": false,
                 "store": "PeopleStore",
                 "onItemDisclosure": null
             },
@@ -39,6 +40,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "implHandler": [
+                            "<div><img src=\"{smallImageUrl}\" alt=\"no image\"></div>\r",
                             "<div>{title}</div>"
                         ],
                         "designer|displayName": "itemTpl"
@@ -59,6 +61,9 @@
                         "type": "array"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "autoPaging": true
+                    },
                     "designerId": "5e2f9898-f739-4237-919d-b3055afc24ec"
                 },
                 {

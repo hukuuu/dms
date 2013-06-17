@@ -37,7 +37,10 @@ Ext.define('MyApp.model.PersonModel', {
                 name: 'id'
             },
             {
-                name: 'imageUrl'
+                name: 'smallImageUrl'
+            },
+            {
+                name: 'bigImageUrl'
             }
         ]
     }

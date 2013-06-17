@@ -29,11 +29,14 @@ Ext.define('MyApp.view.PeopleContainer', {
             {
                 xtype: 'list',
                 itemTpl: [
+                    '<div><img src="{smallImageUrl}" alt="no image"></div>',
                     '<div>{title}</div>'
                 ],
+                scrollToTopOnRefresh: false,
                 store: 'PeopleStore',
                 plugins: [
                     {
+                        autoPaging: true,
                         type: 'listpaging'
                     },
                     {
