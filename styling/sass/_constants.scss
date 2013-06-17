@@ -5,9 +5,11 @@
 $theme:
   page-dark       #30353c
   text            #d4d4d4
+  shadow          #202328
 
   navigation (
     link          #ff9b15
+    active        #171a1e
   )
 
   border (
@@ -45,7 +47,9 @@ $base-radius:           $base-margin;
   SENCHA DEFAULTS
 ============================================================================= */
 
-$base-color:            theme(text);
+$base-color:            theme(page-dark);
 $page-bg-color:         theme(page-dark);
 $active-color:          theme(navigation link);
 $include-border-radius: false;
+
+$include-highlights:    false;

@@ -62,7 +62,8 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
             }
         ],
         tabBar: {
-            docked: 'bottom'
+            docked: 'bottom',
+            cls: 'app-tabbar'
         }
     }
 

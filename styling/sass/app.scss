@@ -29,8 +29,16 @@ body {
   }
 }
 
+.x-list-paging {
+
+  .x-list-paging-msg {
+    color: theme(navigation link);
+  }
+}
+
 /* =============================================================================
   PARTIALS
 ============================================================================= */
 
+@import 'tabbar';
 @import 'campaign-list';
