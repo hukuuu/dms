@@ -6,7 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoLoad": true,
         "data": [
+            "/*\r",
+            "\r",
+            "\r",
+            "\r",
             "[\r",
             "    {\r",
             "        \"title\": \"Да помогнем на Марин - DMS MARIN\",\r",
@@ -71,7 +76,13 @@
             "        \"id\": \"362\",\r",
             "        \"imageUrl\": \"http://dmsbg.com/files/projects_file1_1368076453.jpg\"\r",
             "    }\r",
-            "]"
+            "]\r",
+            "\r",
+            "\r",
+            "\r",
+            "\r",
+            "\r",
+            "*/"
         ],
         "model": "PersonModel",
         "storeId": "PeopleStore",
@@ -86,6 +97,9 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "url": "/dmsapi/campaign.json?&type=0"
+            },
             "designerId": "838c6fb3-07d1-440e-ba94-1724ce65a4c4",
             "cn": [
                 {

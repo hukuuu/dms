@@ -31,7 +31,15 @@ Ext.define('MyApp.view.PeopleContainer', {
                 itemTpl: [
                     '<div>{title}</div>'
                 ],
-                store: 'PeopleStore'
+                store: 'PeopleStore',
+                plugins: [
+                    {
+                        type: 'listpaging'
+                    },
+                    {
+                        type: 'pullrefresh'
+                    }
+                ]
             }
         ]
     }

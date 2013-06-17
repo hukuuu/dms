@@ -84,7 +84,7 @@ Ext.define('MyApp.controller.MainController', {
         me.getDetailsContainer().element.on(
         { 
             swipe: function (e) {
-                if(e.direction === 'right') {
+                if(e.direction == 'right') {
                     me.getTabPanel().setActiveItem(me.comingFrom);  
                 }
             } 

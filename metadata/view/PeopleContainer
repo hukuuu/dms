@@ -51,6 +51,24 @@
                             "type": "string"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.plugin.ListPaging",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "5e2f9898-f739-4237-919d-b3055afc24ec"
+                },
+                {
+                    "type": "Ext.plugin.PullRefresh",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "153fda03-b1a0-40b1-9f8a-198923c3de2b"
                 }
             ]
         }
