@@ -20,10 +20,12 @@ Ext.Loader.setConfig({
 
 Ext.application({
     models: [
-        'PersonModel'
+        'BaseModel'
     ],
     stores: [
-        'PeopleStore'
+        'PeopleStore',
+        'OthersStore',
+        'OrganizationsStore'
     ],
     views: [
         'CategoriesTabPanel',

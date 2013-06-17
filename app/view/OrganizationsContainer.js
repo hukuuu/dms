@@ -28,7 +28,7 @@ Ext.define('MyApp.view.OrganizationsContainer', {
                 itemTpl: [
                     '<div>{title}</div>'
                 ],
-                store: 'PeopleStore'
+                store: 'OrganizationsStore'
             }
         ]
     }

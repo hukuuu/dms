@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "PersonModel"
+        "designer|userClassName": "BaseModel"
     },
     "designerId": "0f3af2d8-5c29-4724-b0f2-02cda179b179",
     "cn": [

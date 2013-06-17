@@ -9,10 +9,10 @@
         "autoLoad": true,
         "data": null,
         "model": "BaseModel",
-        "storeId": "PeopleStore",
-        "designer|userClassName": "PeopleStore"
+        "storeId": "OthersStore",
+        "designer|userClassName": "OthersStore"
     },
-    "designerId": "198e3fdb-0561-4518-a428-1cf0bf22cf5b",
+    "designerId": "ca1b0588-b48b-42f9-bc45-2381f29a281b",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -22,9 +22,9 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "http://dms-bg.herokuapp.com/campaign.json?type=0"
+                "url": "http://dms-bg.herokuapp.com/campaign.json?type=2"
             },
-            "designerId": "838c6fb3-07d1-440e-ba94-1724ce65a4c4",
+            "designerId": "59dd21b1-059d-49dd-835a-6094ce9babb5",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -33,7 +33,7 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "designerId": "7a03af60-d609-4d11-955e-64becdc28253"
+                    "designerId": "c96f27e1-4e94-45ac-ae1c-9750252836d3"
                 }
             ]
         }

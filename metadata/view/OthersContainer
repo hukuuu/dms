@@ -23,7 +23,7 @@
             "codeClass": null,
             "userConfig": {
                 "centered": null,
-                "store": "PeopleStore",
+                "store": "OthersStore",
                 "onItemDisclosure": null
             },
             "designerId": "ea27c961-c171-485a-9911-6c7a44573116",

@@ -7,10 +7,12 @@
     "codeClass": null,
     "userConfig": {
         "models": [
-            "PersonModel"
+            "BaseModel"
         ],
         "stores": [
-            "PeopleStore"
+            "PeopleStore",
+            "OthersStore",
+            "OrganizationsStore"
         ],
         "views": [
             "CategoriesTabPanel",

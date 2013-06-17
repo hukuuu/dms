@@ -64,11 +64,11 @@
         },
         "0f3af2d8-5c29-4724-b0f2-02cda179b179": {
             "paths": [
-                "metadata/model/PersonModel",
-                "app/model/override/PersonModel.js",
-                "app/model/PersonModel.js"
+                "metadata/model/BaseModel",
+                "app/model/override/BaseModel.js",
+                "app/model/BaseModel.js"
             ],
-            "className": "PersonModel"
+            "className": "BaseModel"
         },
         "f8118242-9382-417a-98b4-b0de8d4c238b": {
             "paths": [
@@ -101,6 +101,22 @@
                 "app/view/HistoryContainer.js"
             ],
             "className": "HistoryContainer"
+        },
+        "46ae7f2a-5a4b-4641-9b60-84d80386b965": {
+            "paths": [
+                "metadata/store/OrganizationsStore",
+                "app/store/override/OrganizationsStore.js",
+                "app/store/OrganizationsStore.js"
+            ],
+            "className": "OrganizationsStore"
+        },
+        "ca1b0588-b48b-42f9-bc45-2381f29a281b": {
+            "paths": [
+                "metadata/store/OthersStore",
+                "app/store/override/OthersStore.js",
+                "app/store/OthersStore.js"
+            ],
+            "className": "OthersStore"
         }
     },
     "viewOrderMap": {
@@ -113,7 +129,9 @@
             "3fb92c9f-0f9c-4841-863f-d688149430d1"
         ],
         "store": [
-            "198e3fdb-0561-4518-a428-1cf0bf22cf5b"
+            "198e3fdb-0561-4518-a428-1cf0bf22cf5b",
+            "46ae7f2a-5a4b-4641-9b60-84d80386b965",
+            "ca1b0588-b48b-42f9-bc45-2381f29a281b"
         ],
         "controller": [
             "f8118242-9382-417a-98b4-b0de8d4c238b"
