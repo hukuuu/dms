@@ -33,7 +33,10 @@ Ext.define('MyApp.view.PeopleContainer', {
                 itemTpl: [
                     '<div class="campaign-list-container">',
                         '<div class="campain-list-img"><img src="{smallImageUrl}" alt="no image"></div>',
-                        '<div class="campain-list-title">{title}</div>',
+                        '<div class="campain-list-title">',
+                            '<small>{title}</small>',
+                            '<strong>{text}</strong>',
+                        '</div>',
                     '</div>'
                 ],
                 scrollToTopOnRefresh: false,

@@ -28,9 +28,13 @@
   @include clearfix;
 }
 
-.campain-list-img,
+/* .campain-list-img,
 .campain-list-title {
-  @include float(left);
+  float: left;
+} */
+
+.campain-list-img {
+  float: left;
 }
 
 .campain-list-img,
@@ -56,5 +60,23 @@
 }
 
 .campain-list-title {
+  margin-top: $base-margin * .5;
 
+  small,
+  strong {
+    display: block;
+  }
+
+  small {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: $base-margin * .5;
+    font-size: .75em;
+  }
+
+  strong {
+    color: theme(navigation link);
+    font-weight: bold;
+  }
 }

@@ -28,7 +28,13 @@ Ext.define('MyApp.view.OthersContainer', {
                 xtype: 'list',
                 cls: 'campaign-list',
                 itemTpl: [
-                    '<div>{title}</div>'
+                    '<div class="campaign-list-container">',
+                        '<div class="campain-list-img"><img src="{smallImageUrl}" alt="no image"></div>',
+                        '<div class="campain-list-title">',
+                            '<small>{title}</small>',
+                            '<strong>{text}</strong>',
+                        '</div>',
+                    '</div>'
                 ],
                 store: 'OthersStore'
             }
