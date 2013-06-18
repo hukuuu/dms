@@ -47,6 +47,7 @@ $base-radius:           $base-margin;
   SENCHA DEFAULTS
 ============================================================================= */
 
+$loading-spinner-color: theme(navigation link);
 $base-color:            theme(page-dark);
 $page-bg-color:         theme(page-dark);
 $active-color:          theme(navigation link);
