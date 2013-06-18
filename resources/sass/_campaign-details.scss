@@ -33,14 +33,14 @@
     display: block;
   }
 
-  time {
-    padding: $base-padding * 1.35 0;
-    border-bottom: 1px solid theme(border dark);
+  time,
+  .required-amount {
     text-align: right;
   }
 
-  .app-actions {
-    border-bottom: 1px solid theme(border light);
+  time {
+    padding: $base-padding * 1.35 0;
+    border-bottom: 1px solid theme(border dark);
   }
 
   small,
@@ -54,6 +54,16 @@
 
   strong {
     font-weight: bold;
+  }
+
+  .required-amount {
+    padding: $base-padding * .9 0;
+    border-top: 1px solid theme(border light);
+
+    strong {
+      font-size: 1em;
+      color: theme(navigation link);
+    }
   }
 }
 

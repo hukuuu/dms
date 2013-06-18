@@ -19,6 +19,10 @@ Ext.define('MyApp.view.DetailsContainer', {
 
     config: {
         cls: 'app-page',
+        scrollable: {
+            direction: 'vertical',
+            directionLock: true
+        },
         items: [
             {
                 xtype: 'button',
@@ -41,7 +45,10 @@ Ext.define('MyApp.view.DetailsContainer', {
                     '<small>Стартирала на</small>',
                     '<strong>{date}</strong>',
                 '</time>',
-                '<div class="app-actions"></div>',
+                '<div class="required-amount">',
+                    '<small>Необходима сума</small>',
+                    '<strong>{sum}</strong>',
+                '</div>',
             '</div>',
             '<div class="description">',
                 '<h1>{title}</h1>',
