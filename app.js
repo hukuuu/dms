@@ -43,6 +43,7 @@ Ext.application({
     launch: function() {
 
         Ext.fly('loading').destroy();
+        Ext.fly('logo-large').destroy();
 
         Ext.create('MyApp.view.MainView', {fullscreen: true});
         

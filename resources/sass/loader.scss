@@ -5,6 +5,20 @@ body {
   height: 100%;
 }
 
+#logo-large {
+  display: block;
+  position: relative;
+  top: 20%;
+  left: 50%;
+  overflow: hidden;
+  width: image-width($logo-large);
+  height: image-height($logo-large);
+  margin-top: - image-height($logo-large) * .5;
+  margin-left: - image-width($logo-large) * .5;
+  background: transparent inline-image($logo-large) no-repeat 0 0;
+  text-indent: -999px;
+}
+
 #loading {
   position: relative;
   top: 80%;
