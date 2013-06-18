@@ -44,8 +44,7 @@ Ext.application({
         //CORS PROBLEM SOLVED !!!
         Ext.Ajax.setUseDefaultXhrHeader(false);
 
-        Ext.fly('loading').destroy();
-        Ext.fly('logo-large').destroy();
+        Ext.fly('splash-page').destroy();
 
         Ext.create('MyApp.view.MainView', {fullscreen: true});
         
