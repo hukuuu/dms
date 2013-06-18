@@ -1,5 +1,6 @@
 Ext.define('MyApp.view.MainView', {
     extend: 'Ext.Container',
+    requires: 'Ext.TitleBar',
     alias: 'widget.mainView',
        config: {
         // cls: 'app-page',

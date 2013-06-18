@@ -18,7 +18,8 @@ Ext.define('MyApp.view.PeopleContainer', {
     alias: 'widget.peopleContainer',
 
     requires: [
-        'Ext.dataview.List'
+        'Ext.dataview.List',
+        'Ext.plugin.ListPaging'
     ],
 
     config: {
@@ -37,7 +38,7 @@ Ext.define('MyApp.view.PeopleContainer', {
                             '<small>{title}</small>',
                             '<strong>{text}</strong>',
                         '</div>',
-                        '<span>{badge}</span>',
+                        '<span class="badge">{badge}</span>',
                     '</div>'
                 ],
                 scrollToTopOnRefresh: false,
@@ -46,9 +47,6 @@ Ext.define('MyApp.view.PeopleContainer', {
                     {
                         autoPaging: true,
                         type: 'listpaging'
-                    },
-                    {
-                        type: 'pullrefresh'
                     }
                 ]
             }

@@ -72,8 +72,7 @@ Ext.define('MyApp.controller.MainController', {
     },
     onBackButtonTap: function (argument) {
         var me = this;
-        me.getTabPanel().setActiveItem(me.comingFrom);
-        me.getBackButton().hide();
+        me.navigateBack();
     },
 
     launch: function() {
@@ -94,27 +93,47 @@ Ext.define('MyApp.controller.MainController', {
             Ext.getStore('OthersStore')
         ]
 
-        Ext.each(me.stores, function(store){
-            store.load();
-        });
-
-        console.log('stores:',me.stores);
+        me.initializeStores();
 
         me.getDetailsContainer().element.on({
             swipe: function(e) {
                 if (e.direction == 'right') {
-                    me.getTabPanel().setActiveItem(me.comingFrom);
-                    me.getBackButton().hide();
+                    me.navigateBack();
                 }
             }
         });
     },
+
+    initializeStores: function () {
+        var me = this,
+            dmsCounts = JSON.parse(localStorage.getItem('dmsCounts')) || {};
+            
+        Ext.each(me.stores, function(store) {
+            store.on('load', function(st, records) {
+                Ext.each(records, function(rec) {
+                    rec.set('badge', dmsCounts[rec.get('id')] || 0);
+                })
+            })
+            store.load();
+        });
+    },
+
+    navigateBack: function () {
+        var me = this;
+        me.getTabPanel().setActiveItem(me.comingFrom);
+        me.getBackButton().hide();
+    },  
 
     incrementBadge: function  (id, store) {
         var dmsCounts;    
         dmsCounts = JSON.parse(localStorage.getItem('dmsCounts')) || {};
         dmsCounts[id] =  dmsCounts[id] + 1 || 1;
         localStorage.setItem('dmsCounts', JSON.stringify(dmsCounts));
+
+
+        var model = store.findRecord('id',id);
+        model.set('badge',model.get('badge') + 1);
+        console.log('model: ', model);
 
         console.log('dmscounts: ', dmsCounts); 
         console.log('store to refresh:',store);
