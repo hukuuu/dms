@@ -1,9 +1,14 @@
+.app-titlebar,
 .app-tabbar {
   @include box-shadow(rgba(theme(shadow), .75) 0 -3px 5px);
   position: relative;
   z-index: 1;
   border: 0 none;
   background: darken(theme(page-dark), 2%);
+}
+
+.app-titlebar {
+  @include box-shadow(rgba(theme(shadow), .75) 0 3px 5px);
 }
 
 .x-tabbar {
