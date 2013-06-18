@@ -23,7 +23,8 @@ Ext.define('MyApp.controller.MainController', {
             detailsContainer: 'detailsContainer',
             sendSmsButton: 'detailsContainer button[action=sendSms]',
             organizationsList: 'organizationsContainer list',
-            othersList: 'othersContainer list'
+            othersList: 'othersContainer list',
+            backButton: 'mainView titlebar button[action=backButton]'
         },
 
         control: {
@@ -38,6 +39,9 @@ Ext.define('MyApp.controller.MainController', {
             },
             "sendSmsButton": {
                 tap: 'onSendSmsButtonTap'
+            },
+            "backButton": {
+                tap: 'onBackButtonTap'
             }
         }
     },
@@ -62,10 +66,14 @@ Ext.define('MyApp.controller.MainController', {
         var me = this,
             record = me.activeRecord;
 
-        var location = 'sms:' + '17777?body=' + record.get('text');
-        console.log(location);
+        me.incrementBadge(record.get('id'), me.stores[me.comingFrom]);        
         window.location = 'sms:' + '17777?body=' + record.get('text');
 
+    },
+    onBackButtonTap: function (argument) {
+        var me = this;
+        me.getTabPanel().setActiveItem(me.comingFrom);
+        me.getBackButton().hide();
     },
 
     launch: function() {
@@ -80,15 +88,33 @@ Ext.define('MyApp.controller.MainController', {
             history: 4
 
         };
+        me.stores = [
+            Ext.getStore('PeopleStore'),
+            Ext.getStore('OrganizationsStore'),
+            Ext.getStore('OthersStore')
+        ]
 
-        me.getDetailsContainer().element.on(
-        { 
-            swipe: function (e) {
-                if(e.direction == 'right') {
-                    me.getTabPanel().setActiveItem(me.comingFrom);  
+        console.log('stores:',me.stores);
+
+        me.getDetailsContainer().element.on({
+            swipe: function(e) {
+                if (e.direction == 'right') {
+                    me.getTabPanel().setActiveItem(me.comingFrom);
+                    me.getBackButton().hide();
                 }
-            } 
+            }
         });
+    },
+
+    incrementBadge: function  (id, store) {
+        var dmsCounts;    
+        dmsCounts = JSON.parse(localStorage.getItem('dmsCounts')) || {};
+        dmsCounts[id] =  dmsCounts[id] + 1 || 1;
+        localStorage.setItem('dmsCounts', JSON.stringify(dmsCounts));
+
+        console.log('dmscounts: ', dmsCounts); 
+        console.log('store to refresh:',store);
+                      
     },
 
     navigateToDetails: function(comingFrom, record) {
@@ -100,6 +126,10 @@ Ext.define('MyApp.controller.MainController', {
 
         // save the last location for later return with swipe
         me.comingFrom = comingFrom;
+
+        //show the "back" button
+        me.getBackButton().show();
+
         // navigate to the details view
         tabPanel.setActiveItem(me.indexes.details);
         // cache the selected record
@@ -110,10 +140,8 @@ Ext.define('MyApp.controller.MainController', {
         var me = this;
 
         me
-        .getDetailsContainer()
-        .setHtml(
-        me.getDetailsContainer().template.apply(record.getData())
-        );
+            .getDetailsContainer()
+            .setHtml(me.getDetailsContainer().template.apply(record.getData()));
     }
 
 });
