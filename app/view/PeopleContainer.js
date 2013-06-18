@@ -37,6 +37,7 @@ Ext.define('MyApp.view.PeopleContainer', {
                             '<small>{title}</small>',
                             '<strong>{text}</strong>',
                         '</div>',
+                        '<span>{badge}</span>',
                     '</div>'
                 ],
                 scrollToTopOnRefresh: false,
