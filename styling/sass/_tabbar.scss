@@ -20,6 +20,7 @@
       border-right: 1px solid theme(border dark);
 
       &.x-tab-active {
+        border-left-color: theme(border dark);
         background: theme(navigation active);
 
         &:before {

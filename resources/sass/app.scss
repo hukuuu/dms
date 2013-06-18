@@ -26,6 +26,7 @@ body {
   &.app-page,
   &.campaign-list {
     background: theme(page-dark);
+    color: theme(text);
   }
 }
 
