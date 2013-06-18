@@ -32,7 +32,8 @@ Ext.application({
         'PeopleContainer',
         'OrganizationsContainer',
         'OthersContainer',
-        'HistoryContainer'
+        'HistoryContainer',
+        'MainView'
     ],
     controllers: [
         'MainController'
@@ -43,7 +44,7 @@ Ext.application({
 
         Ext.fly('loading').destroy();
 
-        Ext.create('MyApp.view.CategoriesTabPanel', {fullscreen: true});
+        Ext.create('MyApp.view.MainView', {fullscreen: true});
         
      // set up a listener to handle the back button for Android 
         if (Ext.os.is('Android')) {
