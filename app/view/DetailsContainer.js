@@ -19,6 +19,10 @@ Ext.define('MyApp.view.DetailsContainer', {
 
     config: {
         cls: 'app-page',
+        scrollable: {
+            direction: 'vertical',
+            directionLock: true
+        },
         items: [
             {
                 xtype: 'button',
@@ -32,11 +36,24 @@ Ext.define('MyApp.view.DetailsContainer', {
     initialize: function() {
         this.callParent();
         this.template = new Ext.Template(       
-        '<div name="{id}">',
-        '<img src={bigImageUrl} width="100" height="100" alt="no image"></img>',
-        '<h1>{title}</h1>',
-        '<p>{description}</p>',
-        '<time>{date}</time>',
+        '<div name="{id}" class="details-container">',
+            '<div class="details-img">',
+                '<img src={bigImageUrl} alt="no image"></img>',
+            '</div>',
+            '<div class="details-header">',
+                '<time>',
+                    '<small>Стартирала на</small>',
+                    '<strong>{date}</strong>',
+                '</time>',
+                '<div class="required-amount">',
+                    '<small>Необходима сума</small>',
+                    '<strong>{sum}</strong>',
+                '</div>',
+            '</div>',
+            '<div class="description">',
+                '<h1>{title}</h1>',
+                '<p>{description}</p>',
+            '</div>',
         '</div>',
         // a configuration object:
         {

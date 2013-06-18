@@ -19,6 +19,19 @@
       text-indent: -999px;
     }
   }
+
+  .x-button {
+
+    &.button-back {
+      overflow: hidden;
+      width: image-width($button-back);
+      height: image-height($button-back);
+      margin-left: $base-margin * 1.5;
+      border: 0 none;
+      background: transparent inline-image($button-back) no-repeat 0 50%;
+      text-indent: -999px;
+    }
+  }
 }
 
 .x-tabbar {
@@ -54,3 +67,18 @@
     }
   }
 }
+
+/* .app-tabbar {
+
+  .x-button-icon {
+    -webkit-mask-box-image: none;
+
+    &.team {
+      background: transparent inline-image('button-back.png') no-repeat 0 0;
+
+      &:before {
+        content: "";
+      }
+    }
+  }
+} */
