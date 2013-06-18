@@ -21,13 +21,11 @@ Ext.define('MyApp.store.PeopleStore', {
     ],
 
     config: {
-        autoLoad: true,
         model: 'MyApp.model.BaseModel',
         storeId: 'PeopleStore',
         proxy: {
             type: 'ajax',
-            // url: 'http://dms-bg.herokuapp.com/campaign.json?type=0',
-            url: '/dmsapi/campaign.json?type=0',
+            url: 'http://dms-bg.herokuapp.com/campaign.json?type=0',
             startParam: undefined,
             limitParam: undefined,
             reader: {

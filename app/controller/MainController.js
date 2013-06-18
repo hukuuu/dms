@@ -94,6 +94,10 @@ Ext.define('MyApp.controller.MainController', {
             Ext.getStore('OthersStore')
         ]
 
+        Ext.each(me.stores, function(store){
+            store.load();
+        });
+
         console.log('stores:',me.stores);
 
         me.getDetailsContainer().element.on({

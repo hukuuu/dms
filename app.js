@@ -41,6 +41,8 @@ Ext.application({
     name: 'MyApp',
 
     launch: function() {
+        //CORS PROBLEM SOLVED !!!
+        Ext.Ajax.setUseDefaultXhrHeader(false);
 
         Ext.fly('loading').destroy();
 
