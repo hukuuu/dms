@@ -9,6 +9,7 @@ Ext.define('MyApp.view.MainView', {
             	xtype: 'titlebar',
             	docked: 'top',
             	title:'DMS - Mobile',
+                cls: 'app-titlebar',
             	items: [
             		{
             			xtype: 'button',
