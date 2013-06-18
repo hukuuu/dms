@@ -12,12 +12,28 @@
     height: 48px;
 
     .x-tab-icon {
+      position: relative;
       width: 25%;
       height: 48px;
       padding: 0 !important;
+      border-left: 1px solid theme(border light);
+      border-right: 1px solid theme(border dark);
 
       &.x-tab-active {
         background: theme(navigation active);
+
+        &:before {
+          content: " ";
+          position: absolute;
+          top: - $base-margin;
+          left: 50%;
+          height: 0;
+          width: 0;
+          margin-left: - $base-margin;
+          border-left: $base-margin solid transparent;
+          border-right: $base-margin solid transparent;
+          border-bottom: $base-margin solid theme(navigation active);
+        }
       }
     }
   }
