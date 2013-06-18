@@ -41,6 +41,8 @@ Ext.application({
 
     launch: function() {
 
+        Ext.fly('loading').destroy();
+
         Ext.create('MyApp.view.CategoriesTabPanel', {fullscreen: true});
         
      // set up a listener to handle the back button for Android 
