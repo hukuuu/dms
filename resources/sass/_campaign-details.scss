@@ -1,0 +1,62 @@
+.details-container {
+  padding: $base-padding * 2 0 0;
+}
+
+.details-header {
+  @include clearfix;
+}
+
+.details-img {
+  $border-size: 2px;
+
+  @include border-radius(($details-list-img-size + $border-size) * .5);
+  float: left;
+  overflow: hidden;
+  width: $details-list-img-size + $border-size;
+  height: $details-list-img-size + $border-size;
+  margin: 0 $base-margin 0 $base-margin * 1.5;
+  border: $border-size solid theme(border dark);
+  background: theme(border dark);
+
+  img {
+    @include border-radius($details-list-img-size * .5);
+    width: $details-list-img-size;
+  }
+}
+
+.details-header {
+  padding: 0 $base-padding * 1.5;
+
+  time,
+  small,
+  strong {
+    display: block;
+  }
+
+  time {
+    padding: $base-padding * 1.35 0;
+    border-bottom: 1px solid theme(border dark);
+    text-align: right;
+  }
+
+  .app-actions {
+    border-bottom: 1px solid theme(border light);
+  }
+
+  small,
+  strong {
+    font-size: .7em;
+  }
+
+  small {
+    margin: 0 0 $base-margin * .35;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+.description {
+  padding: $base-padding * 1.5;
+}

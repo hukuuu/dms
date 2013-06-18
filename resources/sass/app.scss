@@ -11,6 +11,12 @@ body {
   background: theme(page-dark);
 }
 
+h1 {
+  margin-bottom: $base-margin * 1.5;
+  font-size: 135%;
+  color: theme(navigation link);
+}
+
 .x-container {
 
   &.app-container,
@@ -34,3 +40,4 @@ body {
 
 @import 'toolbars';
 @import 'campaign-list';
+@import 'campaign-details';

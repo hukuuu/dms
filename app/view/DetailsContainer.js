@@ -32,11 +32,21 @@ Ext.define('MyApp.view.DetailsContainer', {
     initialize: function() {
         this.callParent();
         this.template = new Ext.Template(       
-        '<div name="{id}">',
-        '<img src={bigImageUrl} width="100" height="100" alt="no image"></img>',
-        '<h1>{title}</h1>',
-        '<p>{description}</p>',
-        '<time>{date}</time>',
+        '<div name="{id}" class="details-container">',
+            '<div class="details-img">',
+                '<img src={bigImageUrl} alt="no image"></img>',
+            '</div>',
+            '<div class="details-header">',
+                '<time>',
+                    '<small>Стартирала на</small>',
+                    '<strong>{date}</strong>',
+                '</time>',
+                '<div class="app-actions"></div>',
+            '</div>',
+            '<div class="description">',
+                '<h1>{title}</h1>',
+                '<p>{description}</p>',
+            '</div>',
         '</div>',
         // a configuration object:
         {

@@ -28,15 +28,6 @@
   @include clearfix;
 }
 
-/* .campain-list-img,
-.campain-list-title {
-  float: left;
-} */
-
-.campain-list-img {
-  float: left;
-}
-
 .campain-list-img,
 .campain-list-img img {
   display: block;
@@ -46,6 +37,7 @@
   $border-size: 2px;
 
   @include border-radius(($campain-list-img-size + $border-size) * .5);
+  float: left;
   overflow: hidden;
   width: $campain-list-img-size + $border-size;
   height: $campain-list-img-size + $border-size;

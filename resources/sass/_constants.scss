@@ -38,13 +38,15 @@ $levels:
   APP DEFAULTS
 ============================================================================= */
 
-$campain-list-img-size: 48px;
 $base-margin:           10px;
 $base-padding:          $base-margin;
 $base-radius:           $base-margin;
 
 $logo-large:            'logo-dms_large.png';
 $logo-small:            'logo-dms_small.png';
+
+$campain-list-img-size: 48px;
+$details-list-img-size: 120px;
 
 /* =============================================================================
   SENCHA DEFAULTS
