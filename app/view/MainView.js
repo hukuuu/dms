@@ -13,6 +13,7 @@ Ext.define('MyApp.view.MainView', {
             	items: [
             		{
             			xtype: 'button',
+                        cls: 'button-back',
             			text: 'back',
             			action: 'backButton',
             			hidden: true

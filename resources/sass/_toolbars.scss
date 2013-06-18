@@ -19,6 +19,19 @@
       text-indent: -999px;
     }
   }
+
+  .x-button {
+
+    &.button-back {
+      overflow: hidden;
+      width: image-width($button-back);
+      height: image-height($button-back);
+      margin-left: $base-margin * 1.5;
+      border: 0 none;
+      background: transparent inline-image($button-back) no-repeat 0 50%;
+      text-indent: -999px;
+    }
+  }
 }
 
 .x-tabbar {
