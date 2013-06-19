@@ -18,7 +18,36 @@ Ext.define('MyApp.view.HistoryContainer', {
     alias: 'widget.historyContainer',
 
     config: {
-    	cls: 'app-page'
+    	cls: 'app-page',
+    	layout: 'vbox',
+    	items: [
+    		{
+    			xtype: 'container',
+                action: 'allSmsCount',
+    			flex: 1,
+    			tpl: '<h1>foo {count}</h1>',
+    			data: { count: 3}
+    		},
+    		{
+    			xtype: 'container',
+    			flex: 1,
+    			html: 'bar'
+    		}
+    	]
+    },
+    initialize: function () {
+
+        this.on('show',function(){
+            this.query('container[action=allSmsCount]')[0].setData({
+                count: (function () {
+                    var counter = 0;
+                    Ext.each(Ext.getStore('SmsCountStore').data.all, function(rec,index){
+                        counter += rec.get('count');
+                    });
+                    return counter;
+                })()
+            });
+        })
     }
 
 });

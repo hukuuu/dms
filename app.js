@@ -25,7 +25,8 @@ Ext.application({
     stores: [
         'PeopleStore',
         'OthersStore',
-        'OrganizationsStore'
+        'OrganizationsStore',
+        'SmsCountStore'
     ],
     views: [
         'CategoriesTabPanel',

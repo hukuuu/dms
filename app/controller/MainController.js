@@ -64,9 +64,13 @@ Ext.define('MyApp.controller.MainController', {
     onSendSmsButtonTap: function(button, e, eOpts) {
 
         var me = this,
-            record = me.activeRecord;
+            record = me.activeRecord,
+            key = '',
+            date = new Date(),
+            recordId = record.get('id');
 
-        me.incrementBadge(record.get('id'), me.stores[me.comingFrom]);        
+        me.incrementSmsCounter(recordId, new Date(), me.stores[me.comingFrom]);
+
         window.location = 'sms:' + '17777?body=' + record.get('text');
 
     },
@@ -91,8 +95,9 @@ Ext.define('MyApp.controller.MainController', {
             Ext.getStore('PeopleStore'),
             Ext.getStore('OrganizationsStore'),
             Ext.getStore('OthersStore')
-        ]
-
+        ];
+        me.counterStore = Ext.getStore('SmsCountStore');
+        me.counterStore.load();
         me.initializeStores();
 
         me.getDetailsContainer().element.on({
@@ -104,14 +109,47 @@ Ext.define('MyApp.controller.MainController', {
         });
     },
 
+    incrementSmsCounter: function(recordId, date, store) {
+        var me = this,
+            model,
+            visual;
+
+        visual = store.findRecord('id',recordId);
+        visual.set('badge', visual.get('badge') + 1);
+
+
+        me.counterStore.load();
+        model = me.counterStore.queryBy(function(record, index){
+            return record.get('for') == recordId && record.get('key') == date.toLocaleDateString();
+        }).getAt(0);
+        if(model){
+            model.set('count',model.get('count') + 1);
+        }else {
+            me.counterStore.add({key: date.toLocaleDateString(), for: recordId, count: 1});
+        }
+        me.counterStore.sync();
+
+    },
+
     initializeStores: function () {
         var me = this,
-            dmsCounts = JSON.parse(localStorage.getItem('dmsCounts')) || {};
+            badge;
             
         Ext.each(me.stores, function(store) {
+            // for every store on load do :
             store.on('load', function(st, records) {
+                //determine the badge for the record
                 Ext.each(records, function(rec) {
-                    rec.set('badge', dmsCounts[rec.get('id')] || 0);
+
+                    badge = 0;
+                    Ext.each(me.counterStore.getData().all, function (model, index) {
+                        if(model.get('for') == rec.get('id')) {
+                            badge += model.get('count');
+                        }
+                    });
+                    //set badge
+                    rec.set('badge',badge);
+
                 })
             })
             store.load();
@@ -123,22 +161,6 @@ Ext.define('MyApp.controller.MainController', {
         me.getTabPanel().setActiveItem(me.comingFrom);
         me.getBackButton().hide();
     },  
-
-    incrementBadge: function  (id, store) {
-        var dmsCounts;    
-        dmsCounts = JSON.parse(localStorage.getItem('dmsCounts')) || {};
-        dmsCounts[id] =  dmsCounts[id] + 1 || 1;
-        localStorage.setItem('dmsCounts', JSON.stringify(dmsCounts));
-
-
-        var model = store.findRecord('id',id);
-        model.set('badge',model.get('badge') + 1);
-        console.log('model: ', model);
-
-        console.log('dmscounts: ', dmsCounts); 
-        console.log('store to refresh:',store);
-                      
-    },
 
     navigateToDetails: function(comingFrom, record) {
         var me = this,
