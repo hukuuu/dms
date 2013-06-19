@@ -31,7 +31,7 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
             {
                 xtype: 'peopleContainer',
                 title: 'Хора',
-                iconCls: 'team'
+                iconCls: 'people'
             },
             {
                 xtype: 'organizationsContainer',
@@ -39,7 +39,7 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
                     type: 'fit'
                 },
                 title: 'Организации',
-                iconCls: 'favorites'
+                iconCls: 'organizations'
             },
             {
                 xtype: 'othersContainer',
@@ -47,7 +47,7 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
                     type: 'fit'
                 },
                 title: 'Други',
-                iconCls: 'info'
+                iconCls: 'others'
             },
             {
                 xtype: 'detailsContainer',
@@ -58,7 +58,7 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
             {
                 xtype: 'historyContainer',
                 title: 'История',
-                iconCls: 'info'
+                iconCls: 'history'
             }
         ],
         tabBar: {

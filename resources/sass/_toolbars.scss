@@ -68,17 +68,45 @@
   }
 }
 
-/* .app-tabbar {
+.x-tabbar.app-tabbar {
 
-  .x-button-icon {
-    -webkit-mask-box-image: none;
+  .x-tab {
 
-    &.team {
-      background: transparent inline-image('button-back.png') no-repeat 0 0;
+    .x-button-label {
+      margin: -3px 0 0;
+      padding: 0;
+      line-height: 10px;
+      font-size: 10px;
+      color: theme(text);
+    }
+
+    .x-button-icon {
+      margin-top: $base-margin * .5;
+      -webkit-mask-box-image: none;
 
       &:before {
         content: "";
       }
+
+      &.people { background: transparent inline-image('icon-people.png') no-repeat 0 0; }
+      &.organizations { background: transparent inline-image('icon-organizations.png') no-repeat 0 0; }
+      &.others { background: transparent inline-image('icon-others.png') no-repeat 0 0; }
+      &.history { background: transparent inline-image('icon-history.png') no-repeat 0 0; }
     }
   }
-} */
+
+  .x-tab-icon {
+
+    &.x-tab-active {
+
+      .people { background-image: inline-image('icon-people_active.png'); }
+      .organizations { background-image: inline-image('icon-organizations_active.png'); }
+      .others { background-image: inline-image('icon-others_active.png'); }
+      .history { background-image: inline-image('icon-history_active.png'); }
+
+      .x-button-label {
+        color: theme(navigation link);
+      }
+    }
+  }
+}

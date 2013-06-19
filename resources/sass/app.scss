@@ -11,6 +11,12 @@ body {
   background: theme(page-dark);
 }
 
+img {
+  display: block;
+  max-width: 100% !important;
+  height: auto;
+}
+
 h1 {
   margin-bottom: $base-margin * 1.5;
   font-size: 135%;
