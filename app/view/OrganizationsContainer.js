@@ -30,12 +30,12 @@ Ext.define('MyApp.view.OrganizationsContainer', {
                 cls: 'campaign-list',
                 itemTpl: [
                         '<div class="campaign-list-container">',
-                        '<div class="campain-list-img"><img src="{smallImageUrl}" alt="no image"></div>',
-                        '<div class="campain-list-title">',
-                        '<small>{title}</small>',
-                        '<strong>{text}</strong>',
-                        '<span class="badge">{badge}</span>',
-                        '</div>',
+                            '<div class="campain-list-img"><img src="{smallImageUrl}" alt="no image"></div>',
+                            '<div class="campain-list-title">',
+                                '<small>{title}</small>',
+                                '<strong>{text}</strong>',
+                            '</div>',
+                            '<span class="badge badge-{badge}">{badge}</span>',
                         '</div>'
                 ],
                 store: 'OrganizationsStore',

@@ -53,6 +53,7 @@
 
 .campain-list-title {
   margin-top: $base-margin * .5;
+  padding-right: $base-margin + $badge-size;
 
   small,
   strong {
@@ -70,5 +71,27 @@
   strong {
     color: theme(navigation link);
     font-weight: bold;
+  }
+}
+
+.badge {
+  @include border-radius($badge-size * .5);
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: $base-margin * 1.5;
+  min-width: $badge-size;
+  height: $badge-size;
+  margin-top: - $badge-size * .5;
+  line-height: $badge-size;
+  background: theme(navigation link);
+  color: theme(page-dark);
+  font-size: .75em;
+  text-align: center;
+  font-weight: bold;
+
+  &.badge-0 {
+    background: theme(border dark);
+    color: theme(border dark);
   }
 }
