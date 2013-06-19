@@ -1,6 +1,11 @@
 .app-titlebar,
-.app-tabbar {
+.app-tabbar,
+.app-actions {
   @include box-shadow(rgba(theme(shadow), .75) 0 -3px 5px);
+}
+
+.app-titlebar,
+.app-tabbar {
   position: relative;
   z-index: 1;
   border: 0 none;

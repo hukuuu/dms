@@ -65,3 +65,37 @@
 .description {
   padding: $base-padding * 1.5;
 }
+
+.app-actions {
+  padding: $base-padding $base-padding * 1.5;
+  text-align: center;
+
+  .app-button {
+    @include background-image(
+      linear-gradient(
+        lighten(theme(navigation link), 7%),
+        darken(theme(navigation link), 5%)
+      )
+    );
+    @include box-shadow(rgba(theme(page-dark, absdark), .35) 0 2px 3px);
+    @include border-radius($base-radius * .35);
+    display: inline-block;
+    padding: $base-padding * 1 $base-padding * 2;
+    border-color: darken(theme(navigation link), 7%);
+    font-size: .75em;
+    text-transform: uppercase;
+    color: theme(page-dark);
+
+    &.x-button-pressing {
+      @include background-image(
+        linear-gradient(
+          darken(theme(navigation link), 14%),
+          darken(theme(navigation link), 6%)
+        )
+      );
+      @include box-shadow(rgba(theme(page-dark, absdark), .35) 0 2px 5px inset);
+      padding: $base-padding * 1 + 1px $base-padding * 2 $base-padding * 1 - 1px;
+      border-color: theme(border dark);
+    }
+  }
+}

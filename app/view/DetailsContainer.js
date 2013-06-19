@@ -25,10 +25,17 @@ Ext.define('MyApp.view.DetailsContainer', {
         },
         items: [
             {
-                xtype: 'button',
-                action: 'sendSms',
+                xtype:  'container',
                 docked: 'bottom',
-                text: 'Send SMS'
+                cls: 'app-actions',
+                items: [
+                    {
+                        xtype: 'button',
+                        cls: 'app-button',
+                        action: 'sendSms',
+                        text: 'Send SMS'
+                    }
+                ]
             }
         ]
     },
