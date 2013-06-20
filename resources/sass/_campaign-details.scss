@@ -64,8 +64,41 @@
   }
 }
 
-.description {
+.description-container {
   padding: $base-padding * 1.5;
+
+  strong {
+    font-weight: bold;
+  }
+
+  .info-sms,
+  .info-campaign {
+    color: theme(text, darkish);
+  }
+
+  .info-sms {
+    padding: 0 0 .5em;
+    border-bottom: 1px solid theme(border dark);
+
+    strong {
+      color: theme(navigation link);
+    }
+  }
+
+  .description {
+    padding: .75em 0;
+    border-top: 1px solid theme(border light);
+    border-bottom: 1px solid theme(border dark);
+    line-height: 1.5;
+  }
+
+  .info-campaign {
+    padding: .5em 0;
+
+    &.first-child {
+      border-top: 1px solid theme(border light);
+    }
+  }
 }
 
 .app-actions {

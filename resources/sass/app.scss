@@ -23,6 +23,15 @@ h1 {
   color: theme(navigation link);
 }
 
+a {
+  color: theme(navigation link);
+  text-decoration: none;
+
+  &:active  {
+    text-decoration: underline;
+  }
+}
+
 .x-container {
 
   &.app-container,
