@@ -41,20 +41,20 @@ h1 {
 }
 
 .x-scroll-indicator.rounded {
-  background: rgba(theme(text, absligh), .5);
+  background: rgba(theme(text, abslight), .5);
 
   > * {
-    background-color: rgba(theme(text, absligh), .5);
+    background-color: rgba(theme(text, abslight), .5);
   }
 
   > :nth-child(2) {
-    background: rgba(theme(text, absligh), .5);
+    background: rgba(theme(text, abslight), .5);
     content: "";
   }
 
   &.x-scroll-indicator-light {
     > * {
-      background-color: rgba(theme(text, absligh), .5);
+      background-color: rgba(theme(text, abslight), .5);
       content: "";
     }
   }
@@ -67,3 +67,4 @@ h1 {
 @import 'toolbars';
 @import 'campaign-list';
 @import 'campaign-details';
+@import 'counter';

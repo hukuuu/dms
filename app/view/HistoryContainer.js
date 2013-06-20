@@ -24,7 +24,12 @@ Ext.define('MyApp.view.HistoryContainer', {
                 xtype: 'container',
                 action: 'allSmsCount',
                 flex: 1,
-                tpl: '<h1>foo {count}</h1>',
+                tpl: [
+                    '<div class="app-counter-wrapper">',
+                        '<h1>Изпратени SMS-и за месеца</h1>',
+                        '<div class="app-counter">{count}</div>',
+                    '</div>'
+                ],
                 data: {
                     count: 3
                 }
