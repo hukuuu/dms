@@ -38,6 +38,10 @@
   time {
     padding: $base-padding * 1.2 0;
     border-bottom: 1px solid theme(border dark);
+
+    strong {
+      color: theme(text, abslight);
+    }
   }
 
   small,
@@ -115,7 +119,7 @@
     @include box-shadow(rgba(theme(page-dark, absdark), .35) 0 2px 3px);
     @include border-radius($base-radius * .35);
     display: inline-block;
-    padding: $base-padding * 1 $base-padding * 2;
+    padding: $base-padding $base-padding * 2;
     border-color: darken(theme(navigation link), 7%);
     font-size: .75em;
     text-transform: uppercase;
