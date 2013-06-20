@@ -166,8 +166,11 @@ Ext.define('MyApp.controller.MainController', {
         var me = this,
             tabPanel = this.getTabPanel();
 
+
+
         // refresh details with the selected record
         me.refreshDetailsContainer(record);
+        me.getDetailsContainer().getScrollable().getScroller().scrollToTop();
 
         // save the last location for later return with swipe
         me.comingFrom = comingFrom;
@@ -177,6 +180,7 @@ Ext.define('MyApp.controller.MainController', {
 
         // navigate to the details view
         tabPanel.setActiveItem(me.indexes.details);
+        
         // cache the selected record
         me.activeRecord = record;
     },

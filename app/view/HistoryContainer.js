@@ -16,28 +16,43 @@
 Ext.define('MyApp.view.HistoryContainer', {
     extend: 'Ext.Container',
     alias: 'widget.historyContainer',
+    requires : [
+        'Ext.Label'
+    ],
 
     config: {
         cls: 'app-page',
         layout: 'vbox',
-        items: [{
+        items: [
+            {
                 xtype: 'container',
                 action: 'allSmsCount',
                 flex: 1,
                 tpl: [
-                    '<div class="app-counter-wrapper">',
-                        '<h1>Изпратени SMS-и за месеца</h1>',
+                        '<div class="app-counter-wrapper">',
+                        '<h1>SMS-и през последните тридесет дни: </h1>',
                         '<div class="app-counter">{count}</div>',
-                    '</div>'
+                        '</div>'
                 ],
                 data: {
                     count: 3
                 }
-            }, {
+            }, 
+            {
                 xtype: 'container',
-                action: 'chart',
+                layout: 'vbox',
                 flex: 1,
-                html: 'bar'
+                items: [
+                    {
+                        xtype: 'label',
+                        html: '<div class="app-counter-wrapper"><h1>Активност през последните седем дни: </h1></div>'
+                    },
+                    {
+                        xtype: 'container',
+                        action: 'chart'
+                    }
+
+                ]
             }
         ]
     },
@@ -50,40 +65,57 @@ Ext.define('MyApp.view.HistoryContainer', {
             date = new Date(),
             lastThirtyDays = [],
             values = [],
-            store = Ext.getStore('SmsCountStore');
-
-
+            store = Ext.getStore('SmsCountStore'),
+            xlen,
+            ylen,
+            r;
 
         me.on('show', function() {
 
+            //populate the top panel with the count of the SMS-es since the last 30 days
             smsCouonterCont.setData({
                 count: store.getCount(30)
             });
 
-            var r = Raphael(chartCont.element.dom),
-                data = store.getLastDays(30),
+            //if they are not populated - do it, otherwise - dont
+            if(r) {
+                r.clear();
+                r.remove();
+            }
+           
+            var bigger = smsCouonterCont.element.getHeight();
+            var smaller = chartCont.parent.query('label')[0].element.getHeight();
+            r = Raphael(chartCont.element.dom, chartCont.element.getWidth(), bigger - smaller);
+
+            xlen = chartCont.element.getWidth() - 30,
+            ylen = chartCont.element.getHeight() - 30;
+            console.log(chartCont.element.getWidth());
+            console.log(chartCont.element.getHeight());
+            console.log(xlen);
+            console.log(ylen);
+
+            var data = store.getLastDays(7),
                 indexes = [],
                 values = [];
-
-            Ext.each(data,function(item) {
+            Ext.each(data, function(item) {
                 indexes.push(item.date.getDate());
-                values.push(item.count || 1);
+                values.push(item.count);
             });
 
 
-            var xIndexes = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],
+            var xIndexes = [0, 1, 2, 3, 4, 5, 6],
                 x = 10,
                 y = 10,
-                xlen = chartCont.element.getWidth() - 40,
-                ylen = chartCont.element.getHeight() - 40,
                 gutter = 20,
-                chrt = r.linechart(x, y, xlen, ylen, xIndexes , values, {
+                chrt = r.linechart(x, y, xlen, ylen, xIndexes, values, 
+                {
                     gutter: gutter,
                     nostroke: false,
                     axis: "0 0 0 1",
                     symbol: "circle",
-                    width: 1.3,
+                    width: 2,
                     smooth: true,
+                    dash: '-',
                     colors: ['#ff9b15']
                 });
 
@@ -93,11 +125,7 @@ Ext.define('MyApp.view.HistoryContainer', {
                 xlen - 2 * gutter, null, null,
                 indexes.length - 1,
                 0, indexes,
-                r
-            );
-
-
-            document.el = this.query('container[action=chart]')[0].element;
+                r);
         });
 
 

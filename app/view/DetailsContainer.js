@@ -42,6 +42,7 @@ Ext.define('MyApp.view.DetailsContainer', {
 
     initialize: function() {
         this.callParent();
+
         this.template = new Ext.Template(       
         '<div name="{id}" class="details-container">',
             '<div class="details-img">',
