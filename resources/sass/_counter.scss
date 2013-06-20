@@ -1,0 +1,25 @@
+.app-counter-wrapper {
+  padding: $base-padding * 1.5;
+
+  h1 {
+    margin-bottom: $base-margin * 1.5;
+    text-align: center;
+    color: theme(text);
+  }
+}
+
+.app-counter {
+  @include border-radius($counter-size * .5);
+  @include box-shadow(rgba(theme(page-dark, absdark), .75) 0 0 $base-margin * .5 inset);
+  display: block;
+  position: relative;
+  width: $counter-size;
+  height: $counter-size;
+  margin: 0 auto;
+  line-height: $counter-size;
+  background: rgba(theme(page-dark, absdark), .25);
+  font-size: 1.5em;
+  font-weight: bold;
+  color: theme(navigation link);
+  text-align: center;
+}
