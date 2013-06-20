@@ -36,14 +36,16 @@
 .campain-list-img {
   $border-size: 2px;
 
-  @include border-radius($campain-list-img-size * .5);
   float: left;
   overflow: hidden;
   width: $campain-list-img-size;
   height: $campain-list-img-size;
   margin: 0 $base-margin 0 0;
-  border: $border-size solid theme(border dark);
-  background: theme(border dark);
+
+  img {
+    @include border-radius($campain-list-img-size * .5);
+    border: $border-size solid theme(border dark);
+  }
 }
 
 .campain-list-title {
