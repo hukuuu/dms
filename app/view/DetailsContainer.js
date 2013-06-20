@@ -64,6 +64,7 @@ Ext.define('MyApp.view.DetailsContainer', {
                 '</p>',
                 '<p class="description">',
                     '{description}',
+                    '<br><a href="{campaignUrl}" target="_blank" class="read-more">Прочети повече</a>',
                 '</p>',
                 '<p class="info-campaign first-child">',
                     '<small><strong>За абонати по договор с GLOBUL, VIVACOM и Mtel цената на 1 sms е 1 лв. За потребители на предплатени услуги на трите мобилни оператори цената на 1 sms е 1,20 лв. с ДДС.</strong></small>',

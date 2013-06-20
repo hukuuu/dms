@@ -30,6 +30,10 @@ a {
   &:active  {
     text-decoration: underline;
   }
+
+  &.read-more {
+    font-size: .75em;
+  }
 }
 
 .x-container {

@@ -3,7 +3,6 @@ Ext.define('MyApp.view.MainView', {
     requires: 'Ext.TitleBar',
     alias: 'widget.mainView',
        config: {
-        // cls: 'app-page',
         layout: 'fit',
         items: [
             {
@@ -15,6 +14,7 @@ Ext.define('MyApp.view.MainView', {
             		{
             			xtype: 'button',
                         cls: 'button-back',
+                        width: '50px',
             			text: 'back',
             			action: 'backButton',
             			hidden: true

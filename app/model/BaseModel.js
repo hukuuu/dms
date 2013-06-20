@@ -43,6 +43,9 @@ Ext.define('MyApp.model.BaseModel', {
                 name: 'bigImageUrl'
             },
             {
+                name: 'campaignUrl'
+            },
+            {
                 name: 'badge',
                 type: 'number'
             }
