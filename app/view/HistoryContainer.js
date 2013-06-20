@@ -38,37 +38,61 @@ Ext.define('MyApp.view.HistoryContainer', {
     },
     initialize: function() {
 
-        var counter = 0;
+        var me = this,
+            counter = 0,
+            smsCouonterCont = me.query('container[action=allSmsCount]')[0],
+            chartCont = me.query('container[action=chart]')[0],
+            date = new Date(),
+            lastThirtyDays = [],
+            values = [],
+            store = Ext.getStore('SmsCountStore');
 
 
-        this.on('show', function() {
-            counter = 0;
-            Ext.each(Ext.getStore('SmsCountStore').data.all, function(rec, index) {
-                counter += rec.get('count');
+
+        me.on('show', function() {
+
+            smsCouonterCont.setData({
+                count: store.getCount(30)
             });
 
-            console.log('ctre', counter);
+            var r = Raphael(chartCont.element.dom),
+                data = store.getLastDays(30),
+                indexes = [],
+                values = [];
 
-
-            this.query('container[action=allSmsCount]')[0].setData({
-                count: counter
+            Ext.each(data,function(item) {
+                indexes.push(item.date.getDate());
+                values.push(item.count || 1);
             });
 
-            var r = Raphael(this.query('container[action=chart]')[0].element.dom);
 
-            r.linechart(
-                10,
-                10,
-                400,
-                300, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [0, 20, 30, 40, 30, 40, 50, 40, 15, 0], {
-                symbol: 'circle',
-                shade: true,
-                axis: '0 0 1 1',
-                colors: ['red', 'green']
-            });
+            var xIndexes = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29],
+                x = 10,
+                y = 10,
+                xlen = chartCont.element.getWidth() - 40,
+                ylen = chartCont.element.getHeight() - 40,
+                gutter = 20,
+                chrt = r.linechart(x, y, xlen, ylen, xIndexes , values, {
+                    gutter: gutter,
+                    nostroke: false,
+                    axis: "0 0 0 1",
+                    symbol: "circle",
+                    width: 1.3,
+                    smooth: true,
+                    colors: ['#ff9b15']
+                });
+
+            Raphael.g.axis(
+                x + gutter,
+                y + ylen - gutter,
+                xlen - 2 * gutter, null, null,
+                indexes.length - 1,
+                0, indexes,
+                r
+            );
+
 
             document.el = this.query('container[action=chart]')[0].element;
-            console.log('element', this.query('container[action=chart]')[0].element);
         });
 
 
