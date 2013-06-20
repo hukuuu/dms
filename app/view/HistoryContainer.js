@@ -18,36 +18,60 @@ Ext.define('MyApp.view.HistoryContainer', {
     alias: 'widget.historyContainer',
 
     config: {
-    	cls: 'app-page',
-    	layout: 'vbox',
-    	items: [
-    		{
-    			xtype: 'container',
+        cls: 'app-page',
+        layout: 'vbox',
+        items: [{
+                xtype: 'container',
                 action: 'allSmsCount',
-    			flex: 1,
-    			tpl: '<h1>foo {count}</h1>',
-    			data: { count: 3}
-    		},
-    		{
-    			xtype: 'container',
-    			flex: 1,
-    			html: 'bar'
-    		}
-    	]
+                flex: 1,
+                tpl: '<h1>foo {count}</h1>',
+                data: {
+                    count: 3
+                }
+            }, {
+                xtype: 'container',
+                action: 'chart',
+                flex: 1,
+                html: 'bar'
+            }
+        ]
     },
-    initialize: function () {
+    initialize: function() {
 
-        this.on('show',function(){
-            this.query('container[action=allSmsCount]')[0].setData({
-                count: (function () {
-                    var counter = 0;
-                    Ext.each(Ext.getStore('SmsCountStore').data.all, function(rec,index){
-                        counter += rec.get('count');
-                    });
-                    return counter;
-                })()
+        var counter = 0;
+
+
+        this.on('show', function() {
+            counter = 0;
+            Ext.each(Ext.getStore('SmsCountStore').data.all, function(rec, index) {
+                counter += rec.get('count');
             });
-        })
+
+            console.log('ctre', counter);
+
+
+            this.query('container[action=allSmsCount]')[0].setData({
+                count: counter
+            });
+
+            var r = Raphael(this.query('container[action=chart]')[0].element.dom);
+
+            r.linechart(
+                10,
+                10,
+                400,
+                300, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [0, 20, 30, 40, 30, 40, 50, 40, 15, 0], {
+                symbol: 'circle',
+                shade: true,
+                axis: '0 0 1 1',
+                colors: ['red', 'green']
+            });
+
+            document.el = this.query('container[action=chart]')[0].element;
+            console.log('element', this.query('container[action=chart]')[0].element);
+        });
+
+
     }
 
 });
