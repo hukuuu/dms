@@ -89,10 +89,6 @@ Ext.define('MyApp.view.HistoryContainer', {
 
             xlen = chartCont.element.getWidth() - 30,
             ylen = chartCont.element.getHeight() - 30;
-            console.log(chartCont.element.getWidth());
-            console.log(chartCont.element.getHeight());
-            console.log(xlen);
-            console.log(ylen);
 
             var data = store.getLastDays(7),
                 indexes = [],

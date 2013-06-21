@@ -51,18 +51,21 @@ Ext.define('MyApp.controller.MainController', {
     },
 
     onPeopleListItemTap: function(thisObj, index, target, record, e, eOpts) {
-        this.facebookShareLink = record.get('campaignUrl');
+        this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
+        this.getSendSmsButton().set('text',record.get('text'));
         this.navigateToDetails(this.indexes.peopleList, record);
     },
 
     onOrganizationsListItemTap: function(thisObj, index, target, record, e, eOpts) {
-        this.facebookShareLink = record.get('campaignUrl');
+        this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
+        this.getSendSmsButton().set('text',record.get('text'));
         this.navigateToDetails(this.indexes.organizationsList, record);
 
     },
 
     onOthersListItemTap: function(thisObj, index, target, record, e, eOpts) {
-        this.facebookShareLink = record.get('campaignUrl');
+        this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
+        this.getSendSmsButton().set('text',record.get('text'));
         this.navigateToDetails(this.indexes.othersList, record);
     },
 
@@ -86,10 +89,8 @@ Ext.define('MyApp.controller.MainController', {
     },
 
     onFaceboookShareButtonTap: function (argument) {
-        console.log('facebook share');
-        var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
-        console.log(this.facebookShareLink);
-        window.open(sharer + this.facebookShareLink, 'sharer', 'width=626,height=436');
+        var sharer = "https://www.facebook.com/sharer.php?s=100";
+        window.open(sharer + this.facebookShareLinkProps, 'sharer', 'width=626,height=436');
     },
 
     launch: function() {
@@ -205,6 +206,15 @@ Ext.define('MyApp.controller.MainController', {
         me
             .getDetailsContainer()
             .setHtml(me.getDetailsContainer().template.apply(record.getData()));
+    },
+
+    getFacebookShareLinkProps : function  (record) {
+        var props = 
+            '&p[url]=' + encodeURIComponent(record.get('campaignUrl')) + 
+            '&p[summary]=' + encodeURIComponent(record.get('description')) +
+            '&p[title]=' + encodeURIComponent(record.get('title')) +
+            '&p[images][0]=' + encodeURIComponent(record.get('bigImageUrl'));
+            return props;
     }
 
 });
