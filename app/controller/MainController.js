@@ -24,7 +24,8 @@ Ext.define('MyApp.controller.MainController', {
             sendSmsButton: 'detailsContainer button[action=sendSms]',
             organizationsList: 'organizationsContainer list',
             othersList: 'othersContainer list',
-            backButton: 'mainView titlebar button[action=backButton]'
+            backButton: 'mainView toolbar button[action=backButton]',
+            facebookShareButton: 'mainView toolbar button[action=facebookShareButton]'
         },
 
         control: {
@@ -42,6 +43,9 @@ Ext.define('MyApp.controller.MainController', {
             },
             "backButton": {
                 tap: 'onBackButtonTap'
+            },
+            "facebookShareButton": {
+                tap: 'onFaceboookShareButtonTap'
             }
         }
     },
@@ -77,6 +81,11 @@ Ext.define('MyApp.controller.MainController', {
     onBackButtonTap: function (argument) {
         var me = this;
         me.navigateBack();
+    },
+    onFaceboookShareButtonTap: function (argument) {
+        console.log('facebook share');
+        var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
+window.open(sharer + 'http://dmsbg.com/', 'sharer', 'width=626,height=436');
     },
 
     launch: function() {
@@ -125,7 +134,7 @@ Ext.define('MyApp.controller.MainController', {
         if(model){
             model.set('count',model.get('count') + 1);
         }else {
-            var model = new Myapp.model.SmsCountModel();
+            var model = new MyApp.model.SmsCountModel();
             model.set('key',date.toLocaleDateString());
             model.set('for',recordId);
             model.set('count',1);
@@ -163,7 +172,6 @@ Ext.define('MyApp.controller.MainController', {
     navigateBack: function () {
         var me = this;
         me.getTabPanel().setActiveItem(me.comingFrom);
-        me.getBackButton().hide();
     },  
 
     navigateToDetails: function(comingFrom, record) {

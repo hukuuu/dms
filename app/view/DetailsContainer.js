@@ -42,6 +42,17 @@ Ext.define('MyApp.view.DetailsContainer', {
 
     initialize: function() {
         this.callParent();
+            var backButton = Ext.ComponentQuery.query('mainView toolbar button[action=backButton]')[0],
+            facebookSharebutton = Ext.ComponentQuery.query('mainView toolbar button[action=facebookShareButton]')[0];
+
+        this.on('show', function () {
+            backButton.show();
+            facebookSharebutton.show();
+        });
+        this.on('hide',function(){
+             backButton.hide();
+            facebookSharebutton.hide();
+        });
 
         this.template = new Ext.Template(       
         '<div name="{id}" class="details-container">',

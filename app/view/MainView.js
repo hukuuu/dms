@@ -6,7 +6,7 @@ Ext.define('MyApp.view.MainView', {
         layout: 'fit',
         items: [
             {
-            	xtype: 'titlebar',
+            	xtype: 'toolbar',
             	docked: 'top',
             	title:'DMS - Mobile',
                 cls: 'app-titlebar',
@@ -18,12 +18,22 @@ Ext.define('MyApp.view.MainView', {
             			text: 'back',
             			action: 'backButton',
             			hidden: true
-            		}
+            		},
+                    {
+                        xtype: 'spacer'
+                    },
+                    {
+                        xtype: 'button',
+                        width: '50px',
+                        text: 'back',
+                        action: 'facebookShareButton',
+                        hidden: true
+                    }
             	]
             },
             {
             	xtype: 'categoriesTabPanel'
             }
         ]
-    },
+    }
 });
