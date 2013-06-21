@@ -20,7 +20,8 @@ Ext.Loader.setConfig({
 
 Ext.application({
     models: [
-        'BaseModel'
+        'BaseModel',
+        'SmsCountModel'
     ],
     stores: [
         'PeopleStore',

@@ -125,7 +125,11 @@ Ext.define('MyApp.controller.MainController', {
         if(model){
             model.set('count',model.get('count') + 1);
         }else {
-            me.counterStore.add({key: date.toLocaleDateString(), for: recordId, count: 1});
+            var model = new Myapp.model.SmsCountModel();
+            model.set('key',date.toLocaleDateString());
+            model.set('for',recordId);
+            model.set('count',1);
+            me.counterStore.add(model);
         }
         me.counterStore.sync();
 
