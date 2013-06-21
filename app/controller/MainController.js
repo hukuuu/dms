@@ -51,17 +51,18 @@ Ext.define('MyApp.controller.MainController', {
     },
 
     onPeopleListItemTap: function(thisObj, index, target, record, e, eOpts) {
-
+        this.facebookShareLink = record.get('campaignUrl');
         this.navigateToDetails(this.indexes.peopleList, record);
     },
 
     onOrganizationsListItemTap: function(thisObj, index, target, record, e, eOpts) {
-
+        this.facebookShareLink = record.get('campaignUrl');
         this.navigateToDetails(this.indexes.organizationsList, record);
 
     },
 
     onOthersListItemTap: function(thisObj, index, target, record, e, eOpts) {
+        this.facebookShareLink = record.get('campaignUrl');
         this.navigateToDetails(this.indexes.othersList, record);
     },
 
@@ -78,14 +79,17 @@ Ext.define('MyApp.controller.MainController', {
         window.location = 'sms:' + '17777?body=' + record.get('text');
 
     },
+
     onBackButtonTap: function (argument) {
         var me = this;
         me.navigateBack();
     },
+
     onFaceboookShareButtonTap: function (argument) {
         console.log('facebook share');
         var sharer = "https://www.facebook.com/sharer/sharer.php?u=";
-window.open(sharer + 'http://dmsbg.com/', 'sharer', 'width=626,height=436');
+        console.log(this.facebookShareLink);
+        window.open(sharer + this.facebookShareLink, 'sharer', 'width=626,height=436');
     },
 
     launch: function() {
@@ -100,6 +104,7 @@ window.open(sharer + 'http://dmsbg.com/', 'sharer', 'width=626,height=436');
             history: 4
 
         };
+
         me.stores = [
             Ext.getStore('PeopleStore'),
             Ext.getStore('OrganizationsStore'),
@@ -186,9 +191,6 @@ window.open(sharer + 'http://dmsbg.com/', 'sharer', 'width=626,height=436');
 
         // save the last location for later return with swipe
         me.comingFrom = comingFrom;
-
-        //show the "back" button
-        me.getBackButton().show();
 
         // navigate to the details view
         tabPanel.setActiveItem(me.indexes.details);
