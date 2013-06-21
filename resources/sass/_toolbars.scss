@@ -27,14 +27,20 @@
 
   .x-button {
 
-    &.button-back {
+    &.button-back,
+    &.button-facebook {
       overflow: hidden;
       width: image-width($button-back);
       height: image-height($button-back);
-      margin-left: $base-margin * 1.5;
+      margin: 0 0 0 $base-margin * 1.5;
       border: 0 none;
       background: transparent inline-image($button-back) no-repeat 0 50%;
       text-indent: -999px;
+    }
+
+    &.button-facebook {
+      margin: 0 $base-margin * 1.5 0 0;
+      background: transparent inline-image($button-facebook) no-repeat 100% 50%;
     }
   }
 }

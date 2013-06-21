@@ -24,8 +24,9 @@ Ext.define('MyApp.view.MainView', {
                     },
                     {
                         xtype: 'button',
+                        cls: 'button-facebook',
                         width: '50px',
-                        text: 'back',
+                        text: 'Share',
                         action: 'facebookShareButton',
                         hidden: true
                     }
