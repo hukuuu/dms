@@ -218,9 +218,6 @@ Ext.define('MyApp.controller.MainController', {
             '&p[summary]=' + encodeURIComponent(record.get('description')) +
             '&p[title]=' + encodeURIComponent(record.get('title')) +
             '&p[images][0]=' + encodeURIComponent(record.get('bigImageUrl'));
-        Ext.Msg.alert('title', props, function(argument) {
-            console.log('dismissed');
-        });
         return props;
     }
 
