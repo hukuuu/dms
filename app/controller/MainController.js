@@ -16,6 +16,10 @@
 Ext.define('MyApp.controller.MainController', {
     extend: 'Ext.app.Controller',
 
+    requires: [
+        'Ext.MessageBox'
+    ],
+
     config: {
         refs: {
             peopleList: 'peopleContainer list',
@@ -208,13 +212,16 @@ Ext.define('MyApp.controller.MainController', {
             .setHtml(me.getDetailsContainer().template.apply(record.getData()));
     },
 
-    getFacebookShareLinkProps : function  (record) {
-        var props = 
-            '&p[url]=' + encodeURIComponent(record.get('campaignUrl')) + 
+    getFacebookShareLinkProps: function(record) {
+        var props =
+            '&p[url]=' + encodeURIComponent(record.get('campaignUrl')) +
             '&p[summary]=' + encodeURIComponent(record.get('description')) +
             '&p[title]=' + encodeURIComponent(record.get('title')) +
             '&p[images][0]=' + encodeURIComponent(record.get('bigImageUrl'));
-            return props;
+        Ext.Msg.alert('title', props, function(argument) {
+            console.log('dismissed');
+        });
+        return props;
     }
 
 });
