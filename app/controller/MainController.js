@@ -50,6 +50,9 @@ Ext.define('MyApp.controller.MainController', {
             },
             "facebookShareButton": {
                 tap: 'onFaceboookShareButtonTap'
+            },
+            "tabPanel": {
+                activeitemchange: 'onTabPanelActiveItemChange'
             }
         }
     },
@@ -94,12 +97,19 @@ Ext.define('MyApp.controller.MainController', {
 
     onFaceboookShareButtonTap: function (argument) {
         var sharer = "https://www.facebook.com/sharer.php?s=100";
-        window.open(sharer + this.facebookShareLinkProps, 'sharer', 'width=626,height=436');
+        window.open(sharer + this.facebookShareLinkProps, '_system');
     },
 
+    onTabPanelActiveItemChange: function (thisObj, value, oldValue, eOpts) {
+        this.comingFrom = oldValue;
+    },
     launch: function() {
 
         var me = this;
+
+        me.getApplication().on('backButtonTap',function() {
+           me.navigateBack(); 
+        });
 
         me.indexes = {
             peopleList: 0,

@@ -13,12 +13,16 @@
  * Do NOT hand edit this file.
  */
 
-//@require @packageOverrides
-Ext.Loader.setConfig({
+// //@require @packageOverrides
+// Ext.Loader.setConfig({
 
-});
+// });
 
 Ext.application({
+    requires: [
+       'Ext.MessageBox' 
+    ],
+
     models: [
         'BaseModel',
         'SmsCountModel'
@@ -43,23 +47,29 @@ Ext.application({
     name: 'MyApp',
 
     launch: function() {
+        var me = this;
+
         //CORS PROBLEM SOLVED !!!
         Ext.Ajax.setUseDefaultXhrHeader(false);
 
         Ext.fly('splash-page').destroy();
 
         Ext.create('MyApp.view.MainView', {fullscreen: true});
-        
-     // set up a listener to handle the back button for Android 
-        if (Ext.os.is('Android')) {
-          document.addEventListener("backbutton", Ext.bind(onBackKeyDown, this), false);  // add back button listener
- 
-          function onBackKeyDown(e) {
-              e.preventDefault();
- 
-              Ext.Msg.alert('Title', 'The quick brown fox jumped over the lazy dog.', Ext.emptyFn);
-          }
-       }
+
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+        function onDeviceReady() {
+            document.addEventListener("backbutton", onBackKeyDown, false);
+        }
+
+        // Handle the back button
+        function onBackKeyDown(e) {
+            e.preventDefault();
+            me.fireEvent('backButtonTap', this);
+        }
+
+   
     }
 
 });
