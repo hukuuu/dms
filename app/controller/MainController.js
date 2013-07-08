@@ -17,7 +17,7 @@ Ext.define('MyApp.controller.MainController', {
     extend: 'Ext.app.Controller',
 
     requires: [
-        'Ext.MessageBox'
+            'Ext.MessageBox'
     ],
 
     config: {
@@ -29,7 +29,10 @@ Ext.define('MyApp.controller.MainController', {
             organizationsList: 'organizationsContainer list',
             othersList: 'othersContainer list',
             backButton: 'mainView toolbar button[action=backButton]',
-            facebookShareButton: 'mainView toolbar button[action=facebookShareButton]'
+            facebookShareButton: 'mainView toolbar button[action=facebookShareButton]',
+            peopleSearchField: 'searchfield[name=peopleSearchField]',
+            organizationsSearchField: 'searchfield[name=organizationsSearchField]',
+            othersSearchField: 'searchfield[name=othersSearchField]'
         },
 
         control: {
@@ -53,26 +56,44 @@ Ext.define('MyApp.controller.MainController', {
             },
             "tabPanel": {
                 activeitemchange: 'onTabPanelActiveItemChange'
+            },
+            "peopleSearchField": {
+                keyup: 'onPeopleSearchKeyUp',
+                clearicontap: function(argument) {
+                    Ext.getStore('PeopleStore').clearFilter();
+                }
+            },
+            "organizationsSearchField": {
+                keyup: 'onOrganizationsSearchKeyUp',
+                clearicontap: function(argument) {
+                    Ext.getStore('OrganizationsStore').clearFilter();
+                }
+            },
+            "othersSearchField": {
+                keyup: 'onOthersSearchKeyUp',
+                clearicontap: function(argument) {
+                    Ext.getStore('OthersStore').clearFilter();
+                }
             }
         }
     },
 
     onPeopleListItemTap: function(thisObj, index, target, record, e, eOpts) {
         this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
-        this.getSendSmsButton().set('text',record.get('text'));
+        this.getSendSmsButton().set('text', record.get('text'));
         this.navigateToDetails(this.indexes.peopleList, record);
     },
 
     onOrganizationsListItemTap: function(thisObj, index, target, record, e, eOpts) {
         this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
-        this.getSendSmsButton().set('text',record.get('text'));
+        this.getSendSmsButton().set('text', record.get('text'));
         this.navigateToDetails(this.indexes.organizationsList, record);
 
     },
 
     onOthersListItemTap: function(thisObj, index, target, record, e, eOpts) {
         this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
-        this.getSendSmsButton().set('text',record.get('text'));
+        this.getSendSmsButton().set('text', record.get('text'));
         this.navigateToDetails(this.indexes.othersList, record);
     },
 
@@ -84,31 +105,48 @@ Ext.define('MyApp.controller.MainController', {
             date = new Date(),
             recordId = record.get('id');
 
-        me.incrementSmsCounter(recordId, new Date(), me.stores[me.comingFrom]);
+
+
+        me.incrementSmsCounter(recordId, new Date(), me.stores[me.comingFrom] || me.stores[me.comingFrom.config.index]);
 
         window.location = 'sms:' + '17777?body=' + record.get('text');
 
     },
 
-    onBackButtonTap: function (argument) {
+    onBackButtonTap: function(argument) {
         var me = this;
         me.navigateBack();
     },
 
-    onFaceboookShareButtonTap: function (argument) {
-        var sharer = "https://www.facebook.com/sharer.php?s=100";
+    onFaceboookShareButtonTap: function(argument) {
+        var sharer = "https://www.facebook.com/sharer.php?";
         window.open(sharer + this.facebookShareLinkProps, '_system');
     },
 
-    onTabPanelActiveItemChange: function (thisObj, value, oldValue, eOpts) {
+    onTabPanelActiveItemChange: function(thisObj, value, oldValue, eOpts) {
         this.comingFrom = oldValue;
+        document.oldValue = oldValue;
     },
+
+    onPeopleSearchKeyUp: function(thisObj, e, eOpts) {
+        this.filterStore(Ext.getStore('PeopleStore'), thisObj.getValue());
+    },
+
+    onOrganizationsSearchKeyUp: function(thisObj, e, eOpts) {
+        this.filterStore(Ext.getStore('OrganizationsStore'), thisObj.getValue());
+    },
+
+    onOthersSearchKeyUp: function(thisObj, e, eOpts) {
+        this.filterStore(Ext.getStore('OthersStore'), thisObj.getValue());
+    },
+
+
     launch: function() {
 
         var me = this;
 
-        me.getApplication().on('backButtonTap',function() {
-           me.navigateBack(); 
+        me.getApplication().on('backButtonTap', function() {
+            me.navigateBack();
         });
 
         me.indexes = {
@@ -143,31 +181,31 @@ Ext.define('MyApp.controller.MainController', {
             model,
             visual;
 
-        visual = store.findRecord('id',recordId);
+        visual = store.findRecord('id', recordId);
         visual.set('badge', visual.get('badge') + 1);
 
 
         me.counterStore.load();
-        model = me.counterStore.queryBy(function(record, index){
+        model = me.counterStore.queryBy(function(record, index) {
             return record.get('for') == recordId && record.get('key') == date.toLocaleDateString();
         }).getAt(0);
-        if(model){
-            model.set('count',model.get('count') + 1);
-        }else {
+        if (model) {
+            model.set('count', model.get('count') + 1);
+        } else {
             var model = new MyApp.model.SmsCountModel();
-            model.set('key',date.toLocaleDateString());
-            model.set('for',recordId);
-            model.set('count',1);
+            model.set('key', date.toLocaleDateString());
+            model.set('for', recordId);
+            model.set('count', 1);
             me.counterStore.add(model);
         }
         me.counterStore.sync();
 
     },
 
-    initializeStores: function () {
+    initializeStores: function() {
         var me = this,
             badge;
-            
+
         Ext.each(me.stores, function(store) {
             // for every store on load do :
             store.on('load', function(st, records) {
@@ -175,13 +213,13 @@ Ext.define('MyApp.controller.MainController', {
                 Ext.each(records, function(rec) {
 
                     badge = 0;
-                    Ext.each(me.counterStore.getData().all, function (model, index) {
-                        if(model.get('for') == rec.get('id')) {
+                    Ext.each(me.counterStore.getData().all, function(model, index) {
+                        if (model.get('for') == rec.get('id')) {
                             badge += model.get('count');
                         }
                     });
                     //set badge
-                    rec.set('badge',badge);
+                    rec.set('badge', badge);
 
                 })
             })
@@ -189,10 +227,17 @@ Ext.define('MyApp.controller.MainController', {
         });
     },
 
-    navigateBack: function () {
-        var me = this;
-        me.getTabPanel().setActiveItem(me.comingFrom);
-    },  
+    navigateBack: function() {
+        var me = this,
+            activeItem = me.getTabPanel().getActiveItem();
+
+        if (activeItem.config.root) {
+            //exit
+            navigator.app.exitApp();
+        } else {
+            me.getTabPanel().setActiveItem(me.comingFrom);
+        }
+    },
 
     navigateToDetails: function(comingFrom, record) {
         var me = this,
@@ -209,26 +254,35 @@ Ext.define('MyApp.controller.MainController', {
 
         // navigate to the details view
         tabPanel.setActiveItem(me.indexes.details);
-        
+
         // cache the selected record
         me.activeRecord = record;
     },
 
     refreshDetailsContainer: function(record) {
-        var me = this;
-
+        var me = this
         me
             .getDetailsContainer()
             .setHtml(me.getDetailsContainer().template.apply(record.getData()));
     },
 
     getFacebookShareLinkProps: function(record) {
-        var props =
-            '&p[url]=' + encodeURIComponent(record.get('campaignUrl')) +
-            '&p[summary]=' + encodeURIComponent(record.get('description')) +
-            '&p[title]=' + encodeURIComponent(record.get('title')) +
-            '&p[images][0]=' + encodeURIComponent(record.get('bigImageUrl'));
-        return props;
+        // var props =
+        //     '&p[url]=' + encodeURIComponent(record.get('campaignUrl')) +
+        //     '&p[summary]=' + encodeURIComponent(record.get('description')) +
+        //     '&p[title]=' + encodeURIComponent(record.get('title')) +
+        //     '&p[images][0]=' + encodeURIComponent(record.get('bigImageUrl'));
+        // return props;
+        return "u=dmsbg.com"
+    },
+
+    filterStore: function(store, value) {
+        console.log('message');
+        store.clearFilter();
+        var regex = new RegExp(value, 'i');
+        store.filterBy(function(rec) {
+            return regex.test(rec.get('text'));
+        });
     }
 
 });

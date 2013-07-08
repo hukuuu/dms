@@ -18,33 +18,37 @@ Ext.define('MyApp.view.PeopleContainer', {
     alias: 'widget.peopleContainer',
 
     requires: [
-        'Ext.dataview.List',
-        'Ext.plugin.ListPaging'
+            'Ext.dataview.List',
+            'Ext.plugin.ListPaging'
     ],
 
     config: {
+        index: '0',
         cls: 'app-page',
         layout: {
             type: 'fit'
         },
-        items: [
-            {
+        items: [{
+                xtype: 'searchfield',
+                placeHolder: 'Търси',
+                name: 'peopleSearchField',
+                docked: 'top'
+            }, {
                 xtype: 'list',
                 cls: 'campaign-list',
                 itemTpl: [
-                    '<div class="campaign-list-container">',
+                        '<div class="campaign-list-container">',
                         '<div class="campain-list-img"><img src="{smallImageUrl}" alt="no image"></div>',
                         '<div class="campain-list-title">',
-                            '<small>{title}</small>',
-                            '<strong>{text}</strong>',
+                        '<small>{title}</small>',
+                        '<strong>{text}</strong>',
                         '</div>',
                         '<span class="badge badge-{badge}">{badge}</span>',
-                    '</div>'
+                        '</div>'
                 ],
                 scrollToTopOnRefresh: false,
                 store: 'PeopleStore',
-                plugins: [
-                    {
+                plugins: [{
                         autoPaging: true,
                         type: 'listpaging'
                     }

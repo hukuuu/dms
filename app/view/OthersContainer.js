@@ -18,29 +18,34 @@ Ext.define('MyApp.view.OthersContainer', {
     alias: 'widget.othersContainer',
 
     requires: [
-        'Ext.dataview.List',
-        'Ext.plugin.ListPaging'
+            'Ext.dataview.List',
+            'Ext.plugin.ListPaging'
     ],
 
 
     config: {
+        index: '2',
         cls: 'app-page',
         items: [{
+                xtype: 'searchfield',
+                placeHolder: 'Търси',
+                name: 'othersSearchField',
+                docked: 'top'
+            }, {
                 xtype: 'list',
                 cls: 'campaign-list',
                 itemTpl: [
                         '<div class="campaign-list-container">',
-                            '<div class="campain-list-img"><img src="{smallImageUrl}" alt="no image"></div>',
-                            '<div class="campain-list-title">',
-                                '<small>{title}</small>',
-                                '<strong>{text}</strong>',
-                            '</div>',
-                            '<span class="badge badge-{badge}">{badge}</span>',
+                        '<div class="campain-list-img"><img src="{smallImageUrl}" alt="no image"></div>',
+                        '<div class="campain-list-title">',
+                        '<small>{title}</small>',
+                        '<strong>{text}</strong>',
+                        '</div>',
+                        '<span class="badge badge-{badge}">{badge}</span>',
                         '</div>'
                 ],
                 store: 'OthersStore',
-                plugins: [
-                    {
+                plugins: [{
                         autoPaging: true,
                         type: 'listpaging'
                     }
