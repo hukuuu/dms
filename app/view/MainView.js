@@ -24,12 +24,20 @@ Ext.define('MyApp.view.MainView', {
                     },
                     {
                         xtype: 'button',
+                        iconCls: 'search',
+                        width: '50px',
+                        action: 'searchButton',
+                        hidden: false
+                    },
+                    {
+                        xtype: 'button',
                         cls: 'button-facebook',
                         width: '50px',
                         text: 'Share',
                         action: 'facebookShareButton',
                         hidden: true
                     }
+                    
             	]
             },
             {

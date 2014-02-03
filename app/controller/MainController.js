@@ -32,7 +32,17 @@ Ext.define('MyApp.controller.MainController', {
             facebookShareButton: 'mainView toolbar button[action=facebookShareButton]',
             peopleSearchField: 'searchfield[name=peopleSearchField]',
             organizationsSearchField: 'searchfield[name=organizationsSearchField]',
-            othersSearchField: 'searchfield[name=othersSearchField]'
+            othersSearchField: 'searchfield[name=othersSearchField]',
+            searchButton:'mainView toolbar button[action=searchButton]',
+            searchContainer: {
+                autoCreate: true,
+                selector: '#searchContainer',
+                xtype: 'searchContainer'
+            },
+            searchButtonInContainer: 'searchContainer button',
+            peopleCheckboxInContainer:'searchContainer checkboxfield[name=people]',
+            organizationsCheckboxInContainer:'searchContainer checkboxfield[name=organizations]',
+            othersCheckboxInContainer:'searchContainer checkboxfield[name=others]'
         },
 
         control: {
@@ -54,6 +64,9 @@ Ext.define('MyApp.controller.MainController', {
             "facebookShareButton": {
                 tap: 'onFaceboookShareButtonTap'
             },
+            "searchButton":{
+                tap:'onSearchButtonTap'
+            },
             "tabPanel": {
                 activeitemchange: 'onTabPanelActiveItemChange'
             },
@@ -74,14 +87,19 @@ Ext.define('MyApp.controller.MainController', {
                 clearicontap: function(argument) {
                     Ext.getStore('OthersStore').clearFilter();
                 }
+            },
+            "searchButtonInContainer" : {
+                tap:'onsearchButtonInContainerTap'
             }
         }
     },
 
     onPeopleListItemTap: function(thisObj, index, target, record, e, eOpts) {
-        this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
-        this.getSendSmsButton().set('text', record.get('text'));
-        this.navigateToDetails(this.indexes.peopleList, record);
+        console.log("this obj",thisObj,"index",index,"record",record);
+        var me = this;
+        me.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
+        me.getSendSmsButton().set('text', record.get('text'));
+        me.navigateToDetails(me.indexes.peopleList, record);
     },
 
     onOrganizationsListItemTap: function(thisObj, index, target, record, e, eOpts) {
@@ -89,6 +107,47 @@ Ext.define('MyApp.controller.MainController', {
         this.getSendSmsButton().set('text', record.get('text'));
         this.navigateToDetails(this.indexes.organizationsList, record);
 
+    },
+    onSearchButtonTap : function(button, e, eOpts) {
+        console.log("search button clicked");
+         var me = this;
+        var popup = me.getSearchContainer();
+        popup.showBy(button);
+    },
+    onsearchButtonInContainerTap : function(button, e, eOpts){
+        console.log("search is performed");
+        var me = this;
+        var formValues = me.getSearchContainer().getValues();
+        console.log("values: ",formValues);
+        var organizations = formValues["organizations"],
+            people = formValues["people"],
+            others = formValues["others"],
+            keyword = formValues["keyword"];
+
+        var typeParams = [];
+        if(people!==null)
+            typeParams.push(people);
+        if(organizations!==null)
+            typeParams.push(organizations);
+        if(others!==null)
+            typeParams.push(others);
+
+        console.log(typeParams);
+
+        var searchStore = Ext.getStore('SearchStore');
+        var searchProxy = searchStore.getProxy();
+        searchProxy.setExtraParam('type', typeParams.join(',') );
+        searchProxy.setExtraParam('term', keyword );
+        //searchStore.load();
+
+        searchStore.load(function(records, operation, success) {
+            console.log('loaded records',records);
+            if(records.length==0){
+                searchStore.removeAll();
+            }
+        });
+        var popup = me.getSearchContainer();
+        popup.hide();
     },
 
     onOthersListItemTap: function(thisObj, index, target, record, e, eOpts) {
@@ -144,24 +203,24 @@ Ext.define('MyApp.controller.MainController', {
     launch: function() {
 
         var me = this;
-
         me.getApplication().on('backButtonTap', function() {
             me.navigateBack();
         });
 
         me.indexes = {
-            peopleList: 0,
-            organizationsList: 1,
-            othersList: 2,
-            details: 3,
-            history: 4
+            homeList:0,
+            peopleList: 1,
+            organizationsList: 2,
+            othersList: 3,
+            details: 4,
+            history: 5
 
         };
 
         me.stores = [
             Ext.getStore('PeopleStore'),
             Ext.getStore('OrganizationsStore'),
-            Ext.getStore('OthersStore')
+            Ext.getStore('OthersStore'),
         ];
         me.counterStore = Ext.getStore('SmsCountStore');
         me.counterStore.load();
@@ -174,6 +233,12 @@ Ext.define('MyApp.controller.MainController', {
                 }
             }
         });
+
+        var searchStore = Ext.getStore('SearchStore');
+        var searchProxy = searchStore.getProxy();
+        searchProxy.setExtraParam('type', '0' );
+        searchProxy.setExtraParam('term', 'Дария' );
+        searchStore.load();
     },
 
     incrementSmsCounter: function(recordId, date, store) {
@@ -243,7 +308,7 @@ Ext.define('MyApp.controller.MainController', {
         var me = this,
             tabPanel = this.getTabPanel();
 
-
+            console.log("tabPanel",tabPanel);
 
         // refresh details with the selected record
         me.refreshDetailsContainer(record);
@@ -252,13 +317,16 @@ Ext.define('MyApp.controller.MainController', {
         // save the last location for later return with swipe
         me.comingFrom = comingFrom;
 
+        console.log(me.indexes.details);
         // navigate to the details view
         tabPanel.setActiveItem(me.indexes.details);
 
         // cache the selected record
         me.activeRecord = record;
     },
+    navigateToSearch:function(){
 
+    },
     refreshDetailsContainer: function(record) {
         var me = this
         me

@@ -29,6 +29,12 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
         cls: 'app-container',
         items: [
             {
+                xtype:'homeContainer',
+                title:'home',
+                iconCls: 'people',
+                root:true,
+            },
+            {
                 xtype: 'peopleContainer',
                 title: 'Хора',
                 iconCls: 'people',

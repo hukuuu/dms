@@ -23,17 +23,12 @@ Ext.define('MyApp.view.PeopleContainer', {
     ],
 
     config: {
-        index: '0',
+        index: '1',
         cls: 'app-page',
         layout: {
             type: 'fit'
         },
-        items: [{
-                xtype: 'searchfield',
-                placeHolder: 'Търси',
-                name: 'peopleSearchField',
-                docked: 'top'
-            }, {
+        items: [ {
                 xtype: 'list',
                 cls: 'campaign-list',
                 itemTpl: [

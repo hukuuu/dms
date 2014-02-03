@@ -24,14 +24,9 @@ Ext.define('MyApp.view.OthersContainer', {
 
 
     config: {
-        index: '2',
+        index: '3',
         cls: 'app-page',
-        items: [{
-                xtype: 'searchfield',
-                placeHolder: 'Търси',
-                name: 'othersSearchField',
-                docked: 'top'
-            }, {
+        items: [ {
                 xtype: 'list',
                 cls: 'campaign-list',
                 itemTpl: [

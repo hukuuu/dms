@@ -31,7 +31,8 @@ Ext.application({
         'PeopleStore',
         'OthersStore',
         'OrganizationsStore',
-        'SmsCountStore'
+        'SmsCountStore',
+        'SearchStore'
     ],
     views: [
         'CategoriesTabPanel',
@@ -39,6 +40,8 @@ Ext.application({
         'OrganizationsContainer',
         'OthersContainer',
         'HistoryContainer',
+        'SearchContainer',
+        'HomeContainer',
         'MainView'
     ],
     controllers: [
