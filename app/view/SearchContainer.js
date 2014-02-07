@@ -19,7 +19,7 @@ Ext.define('MyApp.view.SearchContainer', {
     alias: 'widget.searchContainer',
  
     config: {
-        height: '50%',
+        height: '35%',
         itemId: 'searchContainer',
         left: '5%',
         padding: 10,

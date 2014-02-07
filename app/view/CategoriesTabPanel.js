@@ -30,7 +30,7 @@ Ext.define('MyApp.view.CategoriesTabPanel', {
         items: [
             {
                 xtype:'homeContainer',
-                title:'home',
+                title:'Търсене',
                 iconCls: 'people',
                 root:true,
             },
