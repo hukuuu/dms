@@ -42,7 +42,8 @@ Ext.define('MyApp.controller.MainController', {
             searchButtonInContainer: 'searchContainer button',
             peopleCheckboxInContainer:'searchContainer checkboxfield[name=people]',
             organizationsCheckboxInContainer:'searchContainer checkboxfield[name=organizations]',
-            othersCheckboxInContainer:'searchContainer checkboxfield[name=others]'
+            othersCheckboxInContainer:'searchContainer checkboxfield[name=others]',
+            searchList :'homeContainer list'
         },
 
         control: {
@@ -54,6 +55,9 @@ Ext.define('MyApp.controller.MainController', {
             },
             "othersList": {
                 itemtap: 'onOthersListItemTap'
+            },
+            "searchList":{
+                itemtap : 'onSearchListItemTap'
             },
             "sendSmsButton": {
                 tap: 'onSendSmsButtonTap'
@@ -152,6 +156,11 @@ Ext.define('MyApp.controller.MainController', {
 
     onOthersListItemTap: function(thisObj, index, target, record, e, eOpts) {
         this.facebookShareLinkProps = this.getFacebookShareLinkProps(record);
+        this.getSendSmsButton().set('text', record.get('text'));
+        this.navigateToDetails(this.indexes.othersList, record);
+    },
+
+    onSearchListItemTap : function(thisObj, index, target, record, e, eOpts) {
         this.getSendSmsButton().set('text', record.get('text'));
         this.navigateToDetails(this.indexes.othersList, record);
     },

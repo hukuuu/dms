@@ -75,7 +75,7 @@ Ext.define('MyApp.view.DetailsContainer', {
                     '<small>Изпратете дарителски SMS с текст на латиница <strong>{text}</strong> на номер <strong>17 777</strong> (за абонати на GLOBUL, VIVACOM и Mtel)</small>',
                 '</p>',
                 '<p class="description">',
-                    '{description}',
+                    '{longDescription}',
                     '<br><a href="{campaignUrl}" target="_blank" class="read-more">Прочети повече</a>',
                 '</p>',
                 '<p class="info-campaign first-child">',

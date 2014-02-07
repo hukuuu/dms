@@ -22,7 +22,7 @@ Ext.define('MyApp.model.BaseModel', {
                 name: 'title'
             },
             {
-                name: 'description'
+                name: 'longDescription'
             },
             {
                 name: 'date'
